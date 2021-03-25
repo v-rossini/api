@@ -1,6 +1,8 @@
 package br.com.squad44.api.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +27,8 @@ public class Item implements Serializable {
 	private String manufacturer;
 	private String description;
 	private double price;
+	
+	private List<ItemOrder> orders = new ArrayList<>();
 	
 	public Item() {
 	}
@@ -85,6 +89,10 @@ public class Item implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public List<ItemOrder> getOrders() {
+		return orders;
 	}
 
 	@Override

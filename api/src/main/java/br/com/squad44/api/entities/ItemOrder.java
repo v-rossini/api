@@ -18,19 +18,21 @@ public class ItemOrder implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Item item;
 	private int quantity;
 	private int received = 0;
 	
+	private Item item;
+	private ItemList list;
 	
 	public ItemOrder () {		
 	}
 	
-	public ItemOrder(Long id, Item item, int quantity) {
+	public ItemOrder(Long id, Item item, int quantity, ItemList list) {
 		super();
 		this.id = id;
 		this.item = item;
 		this.quantity = quantity;
+		this.list = list;
 	}
 
 	public Long getId() {
@@ -63,9 +65,15 @@ public class ItemOrder implements Serializable {
 
 	public void setReceived(int received) {
 		this.received += received;
+	}	
+
+	public ItemList getList() {
+		return list;
 	}
-	
-	
+
+	public void setList(ItemList list) {
+		this.list = list;
+	}
 
 	@Override
 	public int hashCode() {

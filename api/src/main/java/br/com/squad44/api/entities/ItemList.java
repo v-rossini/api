@@ -20,17 +20,28 @@ public class ItemList implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private List<ItemOrder> items = new ArrayList<>();
+	private Student student;
+	private School school;
 	
 	public ItemList() {		
 	}
 
-	public ItemList(Long id, List<ItemOrder> items) {
+	public ItemList(Long id, List<ItemOrder> items, Student student) {
 		super();
 		this.id = id;
 		this.items = items;
+		this.student = student;
 	}
 
+	public ItemList(Long id, List<ItemOrder> items, School school) {
+		super();
+		this.id = id;
+		this.items = items;
+		this.school = school;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +52,22 @@ public class ItemList implements Serializable {
 
 	public List<ItemOrder> getItems() {
 		return items;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
 	}
 
 	@Override

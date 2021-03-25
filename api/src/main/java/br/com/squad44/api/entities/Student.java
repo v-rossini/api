@@ -72,7 +72,6 @@ public class Student implements Serializable {
 	}
 	
 	
-
 	public School getSchool() {
 		return school;
 	}
@@ -89,6 +88,16 @@ public class Student implements Serializable {
 		this.parent = parent;
 	}
 	
+	
+	
+
+	public ItemList getList() {
+		return list;
+	}
+
+	public void setList(ItemList list) {
+		this.list = list;
+	}
 
 	@Override
 	public int hashCode() {

@@ -1,9 +1,6 @@
 package br.com.squad44.api.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,31 +9,29 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "tb_donator")
-public class Donator implements Serializable {
+@Table(name = "tb_donation")
+public class Donation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String phone;
-	private String email;
-	private String city;
+	private int quantity;
 	
-	private List<Donation> donations = new ArrayList<>();
-
-	public Donator() {		
+	private Donator donator;
+	private ItemOrder item;
+	
+	public Donation() {
+		
 	}
 
-	public Donator(Long id, String name, String phone, String email, String city) {
+	public Donation(Long id, int quantity, Donator donator, ItemOrder item) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.city = city;
+		this.quantity = quantity;
+		this.donator = donator;
+		this.item = item;
 	}
 
 	public Long getId() {
@@ -47,40 +42,28 @@ public class Donator implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public int getQuantity() {
+		return quantity;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	public String getPhone() {
-		return phone;
+	public Donator getDonator() {
+		return donator;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setDonator(Donator donator) {
+		this.donator = donator;
 	}
 
-	public String getEmail() {
-		return email;
+	public ItemOrder getItem() {
+		return item;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public List<Donation> getDonations() {
-		return donations;
+	public void setItem(ItemOrder item) {
+		this.item = item;
 	}
 
 	@Override
@@ -99,7 +82,7 @@ public class Donator implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Donator other = (Donator) obj;
+		Donation other = (Donation) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -109,7 +92,4 @@ public class Donator implements Serializable {
 	}
 	
 	
-	
-	
-
 }
