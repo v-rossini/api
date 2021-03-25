@@ -26,9 +26,8 @@ public class Student implements Serializable {
 	public Student () {
 	}
 
-	public Student(Long id, String name, School school, Parent parent) {
+	public Student(String name, School school, Parent parent) {
 		super();
-		this.id = id;
 		this.name = name;		
 		this.school = school;
 		this.parent = parent;

@@ -5,6 +5,10 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.squad44.api.entities.Student;
+import br.com.squad44.api.repositories.ParentRepository;
+import br.com.squad44.api.repositories.SchoolRepository;
+
 public class StudentForm {
     
     @NotNull @NotEmpty @Length(min = 5)
@@ -32,5 +36,16 @@ public class StudentForm {
         return schoolId;
     }
 
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public Student convert(SchoolRepository schoolRepository, ParentRepository parentRepository) {
+        return new Student(name, schoolRepository.findById(schoolId).get(), parentRepository.findById(parentId).get());
+    }
     
 }
