@@ -18,9 +18,6 @@ public class Student implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String phone;
-	private String email;
-	
 	private School school;
 	private Parent parent;
 	private ItemList list;
