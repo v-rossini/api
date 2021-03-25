@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import br.com.squad44.api.entities.enums.Category;
 
-
 @Entity
 @Table(name = "tb_item")
 public class Item implements Serializable {
