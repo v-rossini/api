@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.squad44.api.controllers.form.StudentForm;
 import br.com.squad44.api.entities.Student;
+import br.com.squad44.api.repositories.ParentRepository;
+import br.com.squad44.api.repositories.SchoolRepository;
 import br.com.squad44.api.repositories.StudentRepository;
 
 @RestController
@@ -17,9 +20,16 @@ public class StudentController {
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    SchoolRepository schoolRepository;
+
+    @Autowired
+    ParentRepository parentRepository;
+
     @PostMapping
-    public ResponseEntity<Student> register(@RequestBody Student form) {
-        Student student = new Student(form.getName(), form.getSchool(), form.getParent());
+    public ResponseEntity<Student> register(@RequestBody StudentForm form) {
+        Student student = form.convert(schoolRepository, parentRepository);
+        studentRepository.save(student);
         return ResponseEntity.ok().body(student);
     }
 }
