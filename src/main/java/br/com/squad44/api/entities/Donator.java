@@ -30,9 +30,8 @@ public class Donator implements Serializable {
 	public Donator() {		
 	}
 
-	public Donator(Long id, String name, String phone, String email, String city) {
+	public Donator(String name, String phone, String email, String city) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;

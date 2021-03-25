@@ -26,9 +26,8 @@ public class Donation implements Serializable {
 		
 	}
 
-	public Donation(Long id, int quantity, Donator donator, ItemOrder item) {
+	public Donation(int quantity, Donator donator, ItemOrder item) {
 		super();
-		this.id = id;
 		this.quantity = quantity;
 		this.donator = donator;
 		this.item = item;

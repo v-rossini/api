@@ -31,9 +31,8 @@ public class ItemOrder implements Serializable {
 	public ItemOrder () {		
 	}
 	
-	public ItemOrder(Long id, Item item, int quantity, ItemList list) {
-		super();
-		this.id = id;
+	public ItemOrder(Item item, int quantity, ItemList list) {
+		super();		
 		this.item = item;
 		this.quantity = quantity;
 		this.list = list;

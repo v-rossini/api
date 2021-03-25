@@ -33,9 +33,8 @@ public class Item implements Serializable {
 	public Item() {
 	}
 
-	public Item(Long id, Category category, String product, String manufacturer, String description, double price) {
+	public Item(Category category, String product, String manufacturer, String description, double price) {
 		super();
-		this.id = id;
 		this.category = category;
 		this.product = product;
 		this.manufacturer = manufacturer;

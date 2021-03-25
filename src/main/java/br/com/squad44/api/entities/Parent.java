@@ -32,9 +32,8 @@ public class Parent implements Serializable {
 		
 	}
 
-	public Parent(Long id, String name, String phone, String city, String address) {
-		super();
-		this.id = id;
+	public Parent(String name, String phone, String city, String address) {
+		super();		
 		this.name = name;
 		this.phone = phone;
 		this.city = city;
