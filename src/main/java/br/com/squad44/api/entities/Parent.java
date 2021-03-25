@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,6 +27,7 @@ public class Parent implements Serializable {
 	private String city;
 	private String address;
 	
+	@OneToMany(mappedBy = "parent")
 	private List<Student> dependents = new ArrayList<>();
 	
 	public Parent() {

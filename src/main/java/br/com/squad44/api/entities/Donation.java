@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,16 +19,21 @@ public class Donation implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int quantity;
+	private Integer quantity;
 	
+	@ManyToOne
+	@JoinColumn(name = "game_id")
 	private Donator donator;
+	
+	@ManyToOne
+	@JoinColumn(name = "itemOrder_id")
 	private ItemOrder item;
 	
 	public Donation() {
 		
 	}
 
-	public Donation(Long id, int quantity, Donator donator, ItemOrder item) {
+	public Donation(Long id, Integer quantity, Donator donator, ItemOrder item) {
 		super();
 		this.id = id;
 		this.quantity = quantity;
@@ -42,7 +49,7 @@ public class Donation implements Serializable {
 		this.id = id;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 

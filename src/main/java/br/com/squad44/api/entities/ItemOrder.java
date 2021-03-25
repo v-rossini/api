@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -20,18 +23,25 @@ public class ItemOrder implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int quantity;
-	private int received = 0;
+	private Integer quantity;
+	private Integer received = 0;
 	
+	@ManyToOne
+	@JoinColumn(name = "item_id")
 	private Item item;
+	
+	@ManyToOne
+	@JoinColumn(name = "itemList_id")
 	private ItemList list;
+	
+	@OneToMany(mappedBy = "item")
 	private List<Donation> donations = new ArrayList<>();
 	
 	
 	public ItemOrder () {		
 	}
 	
-	public ItemOrder(Long id, Item item, int quantity, ItemList list) {
+	public ItemOrder(Long id, Item item, Integer quantity, ItemList list) {
 		super();
 		this.id = id;
 		this.item = item;
@@ -55,7 +65,7 @@ public class ItemOrder implements Serializable {
 		this.item = item;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
@@ -63,7 +73,7 @@ public class ItemOrder implements Serializable {
 		this.quantity = quantity;
 	}
 	
-	public int getReceived() {
+	public Integer getReceived() {
 		return received;
 	}
 

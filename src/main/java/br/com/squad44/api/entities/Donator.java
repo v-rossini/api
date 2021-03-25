@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,6 +26,7 @@ public class Donator implements Serializable {
 	private String email;
 	private String city;
 	
+	@OneToMany(mappedBy = "donator")
 	private List<Donation> donations = new ArrayList<>();
 
 	public Donator() {		

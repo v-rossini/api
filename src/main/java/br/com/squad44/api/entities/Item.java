@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.squad44.api.entities.enums.Category;
@@ -26,14 +27,15 @@ public class Item implements Serializable {
 	private String product;
 	private String manufacturer;
 	private String description;
-	private double price;
+	private Double price;
 	
+	@OneToMany(mappedBy = "item")
 	private List<ItemOrder> orders = new ArrayList<>();
 	
 	public Item() {
 	}
 
-	public Item(Long id, Category category, String product, String manufacturer, String description, double price) {
+	public Item(Long id, Category category, String product, String manufacturer, String description, Double price) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -83,7 +85,7 @@ public class Item implements Serializable {
 		this.description = description;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 

@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.squad44.api.entities.enums.SchoolType;
@@ -29,7 +32,11 @@ public class School implements Serializable {
 	private String address;
 	private SchoolType type;
 	
+	@OneToMany(mappedBy = "school")
 	private List<Student> students = new ArrayList<>();
+	
+	@OneToOne
+	@JoinColumn(name = "itemList_id")
 	private ItemList list;
 	
 	public School() {
