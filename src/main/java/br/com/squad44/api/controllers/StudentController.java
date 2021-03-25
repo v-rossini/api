@@ -2,10 +2,12 @@ package br.com.squad44.api.controllers;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,5 +42,13 @@ public class StudentController {
     @GetMapping
     public List<Student> getList() {
         return (List<Student>) studentRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Student>> getOne(@PathVariable Long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        if(student.isPresent())
+            return ResponseEntity.ok(student);
+            else return ResponseEntity.notFound().build();
     }
 }
