@@ -32,9 +32,7 @@ public class Student implements Serializable {
 	public Student(Long id, String name, String phone, String email, School school, Parent parent) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
+		this.name = name;		
 		this.school = school;
 		this.parent = parent;
 	}
@@ -54,23 +52,6 @@ public class Student implements Serializable {
 	public void setNome(String nome) {
 		this.name = nome;
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
-	public void setEmail(String email) {
-		this.email= email ;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
 	
 	public School getSchool() {
 		return school;
@@ -88,9 +69,6 @@ public class Student implements Serializable {
 		this.parent = parent;
 	}
 	
-	
-	
-
 	public ItemList getList() {
 		return list;
 	}
