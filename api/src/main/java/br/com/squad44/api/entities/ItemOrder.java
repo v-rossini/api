@@ -1,6 +1,8 @@
 package br.com.squad44.api.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,8 @@ public class ItemOrder implements Serializable {
 	
 	private Item item;
 	private ItemList list;
+	private List<Donation> donations = new ArrayList<>();
+	
 	
 	public ItemOrder () {		
 	}
@@ -73,6 +77,10 @@ public class ItemOrder implements Serializable {
 
 	public void setList(ItemList list) {
 		this.list = list;
+	}	
+
+	public List<Donation> getDonations() {
+		return donations;
 	}
 
 	@Override
