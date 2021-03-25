@@ -20,22 +20,21 @@ public class Donation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer quantity;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "game_id")
 	private Donator donator;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "itemOrder_id")
 	private ItemOrder item;
-	
+
 	public Donation() {
-		
+
 	}
 
-	public Donation(Long id, Integer quantity, Donator donator, ItemOrder item) {
+	public Donation(Integer quantity, Donator donator, ItemOrder item) {
 		super();
-		this.id = id;
 		this.quantity = quantity;
 		this.donator = donator;
 		this.item = item;
@@ -97,6 +96,6 @@ public class Donation implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
+
 }

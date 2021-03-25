@@ -37,9 +37,8 @@ public class ItemList implements Serializable {
 	public ItemList() {		
 	}
 
-	public ItemList(Long id, List<ItemOrder> items, Student student) {
-		super();
-		this.id = id;
+	public ItemList(List<ItemOrder> items, Student student) {
+		super();		
 		this.items = items;
 		this.student = student;
 	}

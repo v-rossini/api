@@ -19,7 +19,7 @@ import br.com.squad44.api.entities.enums.Category;
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -28,16 +28,15 @@ public class Item implements Serializable {
 	private String manufacturer;
 	private String description;
 	private Double price;
-	
+
 	@OneToMany(mappedBy = "item")
 	private List<ItemOrder> orders = new ArrayList<>();
-	
+
 	public Item() {
 	}
 
-	public Item(Long id, Category category, String product, String manufacturer, String description, Double price) {
+	public Item(Category category, String product, String manufacturer, String description, Double price) {
 		super();
-		this.id = id;
 		this.category = category;
 		this.product = product;
 		this.manufacturer = manufacturer;
@@ -122,5 +121,5 @@ public class Item implements Serializable {
 		return true;
 	}
 
-	
+
 }

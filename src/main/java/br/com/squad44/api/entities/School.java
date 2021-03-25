@@ -42,9 +42,8 @@ public class School implements Serializable {
 	public School() {
 	}
 		
-	public School(Long id, String name, String phone, String city, String address, SchoolType type) {
-		super();
-		this.id = id;
+	public School(String name, String phone, String city, String address, SchoolType type) {
+		super();		
 		this.name = name;
 		this.phone = phone;
 		this.city = city;

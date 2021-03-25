@@ -17,33 +17,32 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_itemOrder")
 public class ItemOrder implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer quantity;
 	private Integer received = 0;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "itemList_id")
 	private ItemList list;
-	
+
 	@OneToMany(mappedBy = "item")
 	private List<Donation> donations = new ArrayList<>();
-	
-	
-	public ItemOrder () {		
+
+
+	public ItemOrder () {
 	}
-	
-	public ItemOrder(Long id, Item item, Integer quantity, ItemList list) {
+
+	public ItemOrder(Item item, Integer quantity, ItemList list) {
 		super();
-		this.id = id;
 		this.item = item;
 		this.quantity = quantity;
 		this.list = list;
@@ -72,14 +71,14 @@ public class ItemOrder implements Serializable {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public Integer getReceived() {
 		return received;
 	}
 
 	public void setReceived(int received) {
 		this.received += received;
-	}	
+	}
 
 	public ItemList getList() {
 		return list;
@@ -87,7 +86,7 @@ public class ItemOrder implements Serializable {
 
 	public void setList(ItemList list) {
 		this.list = list;
-	}	
+	}
 
 	public List<Donation> getDonations() {
 		return donations;
@@ -118,5 +117,5 @@ public class ItemOrder implements Serializable {
 		return true;
 	}
 
-	
+
 }
