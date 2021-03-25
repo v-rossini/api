@@ -30,12 +30,12 @@ public class School implements Serializable {
 	private SchoolType type;
 	
 	private List<Student> students = new ArrayList<>();
-	private ListSchool list;
+	private ItemList list;
 	
 	public School() {
 	}
 		
-	public School(Long id, String name, String phone, String city, String address, SchoolType type, ListSchool list) {
+	public School(Long id, String name, String phone, String city, String address, SchoolType type) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,7 +43,6 @@ public class School implements Serializable {
 		this.city = city;
 		this.address = address;
 		this.type = type;
-		this.list = list;
 	}
 
 
@@ -106,12 +105,12 @@ public class School implements Serializable {
 	public List<Student> getStudents() {
 		return students;
 	}	
-
-	public ListSchool getList() {
+	
+	public ItemList getList() {
 		return list;
 	}
 
-	public void setList(ListSchool list) {
+	public void setList(ItemList list) {
 		this.list = list;
 	}
 

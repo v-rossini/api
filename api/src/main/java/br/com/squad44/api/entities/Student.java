@@ -3,6 +3,9 @@ package br.com.squad44.api.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +14,8 @@ public class Student implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String phone;
@@ -18,13 +23,13 @@ public class Student implements Serializable {
 	
 	private School school;
 	private Parent parent;
-	private ListStudent list;
+	private ItemList list;
 	
 	
 	public Student () {
 	}
 
-	public Student(Long id, String nome, String phone, String email, School school, Parent parent, ListStudent list) {
+	public Student(Long id, String nome, String phone, String email, School school, Parent parent) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -32,7 +37,6 @@ public class Student implements Serializable {
 		this.email = email;
 		this.school = school;
 		this.parent = parent;
-		this.list = list;
 	}
 
 	public Long getId() {
@@ -85,15 +89,6 @@ public class Student implements Serializable {
 		this.parent = parent;
 	}
 	
-	
-
-	public ListStudent getList() {
-		return list;
-	}
-
-	public void setList(ListStudent list) {
-		this.list = list;
-	}
 
 	@Override
 	public int hashCode() {
