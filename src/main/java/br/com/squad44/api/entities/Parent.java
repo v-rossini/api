@@ -26,7 +26,7 @@ public class Parent implements Serializable {
 	private String city;
 	private String address;
 	
-	private List<Student> dependentes = new ArrayList<>();
+	private List<Student> dependents = new ArrayList<>();
 	
 	public Parent() {
 		
@@ -89,8 +89,8 @@ public class Parent implements Serializable {
 		this.address = address;
 	}	
 	
-	public List<Student> getDependentes() {
-		return dependentes;
+	public List<Student> getDependents() {
+		return dependents;
 	}
 
 	@Override
