@@ -1,6 +1,7 @@
 package br.com.squad44.api.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,8 @@ public class ItemOrder implements Serializable {
 	private Long id;
 	private Integer quantity;
 	private Integer received = 0;
-
+	private LocalDateTime instant;
+	
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
@@ -45,6 +47,7 @@ public class ItemOrder implements Serializable {
 		super();
 		this.item = item;
 		this.quantity = quantity;
+		this.instant = LocalDateTime.now();
 		this.order = order;
 	}
 
@@ -115,6 +118,10 @@ public class ItemOrder implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public LocalDateTime getInstant() {
+		return instant;
 	}
 
 

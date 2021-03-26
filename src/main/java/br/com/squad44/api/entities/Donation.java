@@ -1,6 +1,8 @@
 package br.com.squad44.api.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Donation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer quantity;
+	private LocalDateTime instant;
 
 	@ManyToOne
 	@JoinColumn(name = "game_id")
@@ -37,6 +40,7 @@ public class Donation implements Serializable {
 		super();
 		this.quantity = quantity;
 		this.donator = donator;
+		this.instant= LocalDateTime.now(); 
 		this.item = item;
 	}
 
@@ -95,6 +99,10 @@ public class Donation implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public LocalDateTime getInstant() {
+		return instant;
 	}
 
 
