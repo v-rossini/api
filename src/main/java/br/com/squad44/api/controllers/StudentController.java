@@ -44,10 +44,10 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Student>> getOne(@PathVariable Long id) {
+    public ResponseEntity<Student> getOne(@PathVariable Long id) {
         Optional<Student> student = studentRepository.findById(id);
         if(student.isPresent())
-            return ResponseEntity.ok(student);
+            return ResponseEntity.ok(student.get());
             else return ResponseEntity.notFound().build();
     }
 }
