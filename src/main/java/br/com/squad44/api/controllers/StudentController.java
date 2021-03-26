@@ -1,6 +1,5 @@
 package br.com.squad44.api.controllers;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
