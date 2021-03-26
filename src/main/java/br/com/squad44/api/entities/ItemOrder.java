@@ -31,8 +31,8 @@ public class ItemOrder implements Serializable {
 	private Item item;
 
 	@ManyToOne
-	@JoinColumn(name = "itemList_id")
-	private ItemList list;
+	@JoinColumn(name = "order_id")
+	private Order order;
 
 	@OneToMany(mappedBy = "item")
 	private List<Donation> donations = new ArrayList<>();
@@ -41,11 +41,11 @@ public class ItemOrder implements Serializable {
 	public ItemOrder () {
 	}
 
-	public ItemOrder(Item item, Integer quantity, ItemList list) {
+	public ItemOrder(Item item, Integer quantity, Order order) {
 		super();
 		this.item = item;
 		this.quantity = quantity;
-		this.list = list;
+		this.order = order;
 	}
 
 	public Long getId() {
@@ -80,12 +80,12 @@ public class ItemOrder implements Serializable {
 		this.received += received;
 	}
 
-	public ItemList getList() {
-		return list;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setList(ItemList list) {
-		this.list = list;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public List<Donation> getDonations() {
