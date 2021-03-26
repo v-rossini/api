@@ -36,7 +36,7 @@ public class School implements Serializable {
 	private List<Student> students = new ArrayList<>();
 	
 	@OneToOne(mappedBy = "school")
-	private ItemList list;
+	private Order order;
 	
 	public School() {
 	}
@@ -111,12 +111,12 @@ public class School implements Serializable {
 		return students;
 	}	
 	
-	public ItemList getList() {
-		return list;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setList(ItemList list) {
-		this.list = list;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	@Override

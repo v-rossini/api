@@ -15,8 +15,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "tb_itemList")
-public class ItemList implements Serializable {
+@Table(name = "tb_Order")
+public class Order implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -24,7 +24,7 @@ public class ItemList implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "list")
+	@OneToMany(mappedBy = "order")
 	private List<ItemOrder> items = new ArrayList<>();
 	
 	@OneToOne
@@ -35,16 +35,16 @@ public class ItemList implements Serializable {
 	@JoinColumn(name = "school_id")
 	private School school;
 	
-	public ItemList() {		
+	public Order() {		
 	}
 
-	public ItemList(List<ItemOrder> items, Student student) {
+	public Order(List<ItemOrder> items, Student student) {
 		super();		
 		this.items = items;
 		this.student = student;
 	}
 
-	public ItemList(Long id, List<ItemOrder> items, School school) {
+	public Order(Long id, List<ItemOrder> items, School school) {
 		super();
 		this.id = id;
 		this.items = items;
@@ -95,7 +95,7 @@ public class ItemList implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItemList other = (ItemList) obj;
+		Order other = (Order) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

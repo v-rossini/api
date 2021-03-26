@@ -31,7 +31,7 @@ public class Student implements Serializable {
 	private Parent parent;
 	
 	@OneToOne(mappedBy = "student")
-	private ItemList list;
+	private Order order;
 	
 	
 	public Student () {
@@ -76,12 +76,12 @@ public class Student implements Serializable {
 		this.parent = parent;
 	}
 	
-	public ItemList getList() {
-		return list;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setList(ItemList list) {
-		this.list = list;
+	public void setList(Order order) {
+		this.order = order;
 	}
 
 	@Override
