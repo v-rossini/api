@@ -35,8 +35,7 @@ public class School implements Serializable {
 	@OneToMany(mappedBy = "school")
 	private List<Student> students = new ArrayList<>();
 	
-	@OneToOne
-	@JoinColumn(name = "itemList_id")
+	@OneToOne(mappedBy = "school")
 	private ItemList list;
 	
 	public School() {

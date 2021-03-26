@@ -31,7 +31,8 @@ public class ItemList implements Serializable {
 	@JoinColumn(name = "student_id")
 	private Student student;
 
-	@OneToOne(mappedBy = "school")
+	@OneToOne
+	@JoinColumn(name = "school_id")
 	private School school;
 	
 	public ItemList() {		
