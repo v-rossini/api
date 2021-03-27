@@ -1,4 +1,4 @@
-package br.com.squad44.api.dtp;
+package br.com.squad44.api.dto;
 
 public class ItemOrderDTO {
 
