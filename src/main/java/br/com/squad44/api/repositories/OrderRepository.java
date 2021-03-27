@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.com.squad44.api.entities.Order;
 
-public interface ItemListRepository extends CrudRepository<Order, Long> {
+public interface OrderRepository extends CrudRepository<Order, Long> {
 
 }
