@@ -1,5 +1,5 @@
 INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Avenida João Pinheiro, 450', 'Belo Horizonte', 'escola@afonsopena.com', 'Escola Estadual Afonso Pena', '3135901590', '2', 'MG');
-INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Rua Severino Meireles, 250', 'Juiz de Fora', 'degraus@colegio.com', 'Sistema Degraus de Ensino', '3256897410', '4', 'MG');
+INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Rua Severino Meireles, 250', 'Juiz de Fora', 'degraus@colegio.com', 'Sistema Degraus de Ensino', '3256897410', '0', 'MG');
 INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Praça dos Espedicionários, 1', 'São João Del Rey', 'maria-teresa-escola@hotmail.com', 'Escola Municipal maria Teresa', '33321548741', '1', 'MG');
 INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Rua da Luz Interior, 360', 'Juiz de Fora', 'admin-mg@ifes.com', 'Instituto Federal do Sudeste Mineiro - MG', '32326574141', '3', 'MG');
 
