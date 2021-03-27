@@ -32,4 +32,9 @@ public class SchoolController {
             return ResponseEntity.ok(school.get());
             else return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/{name}")
+    public List<School> getByName(@PathVariable String name) {
+        return schoolRepository.findByName(name);
+    }
 }
