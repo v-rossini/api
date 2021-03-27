@@ -29,6 +29,7 @@ public class School implements Serializable {
 	private String email;
 	private String city;
 	private String address;
+	private String state;
 	private SchoolType type;
 	
 	@OneToMany(mappedBy = "school")
@@ -40,12 +41,13 @@ public class School implements Serializable {
 	public School() {
 	}
 		
-	public School(String name, String phone, String city, String address, SchoolType type) {
+	public School(String name, String phone, String city, String address, String state, SchoolType type) {
 		super();		
 		this.name = name;
 		this.phone = phone;
 		this.city = city;
 		this.address = address;
+		this.setState(state);
 		this.type = type;
 	}
 
@@ -140,6 +142,14 @@ public class School implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

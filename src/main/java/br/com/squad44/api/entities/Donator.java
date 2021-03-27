@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,9 @@ public class Donator implements Serializable {
 	private String phone;
 	private String email;
 	private String city;
+	private String state;
+	@Column(unique = true)
+	private String cpf;
 	
 	@OneToMany(mappedBy = "donator")
 	private List<Donation> donations = new ArrayList<>();
@@ -32,12 +36,14 @@ public class Donator implements Serializable {
 	public Donator() {		
 	}
 
-	public Donator(String name, String phone, String email, String city) {
+	public Donator(String name, String phone, String email, String city, String state, String cpf) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.city = city;
+		this.state = state;
+		this.cpf = cpf;		
 	}
 
 	public Long getId() {
@@ -83,6 +89,16 @@ public class Donator implements Serializable {
 	public List<Donation> getDonations() {
 		return donations;
 	}
+	
+	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	@Override
 	public int hashCode() {
@@ -107,6 +123,14 @@ public class Donator implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	
