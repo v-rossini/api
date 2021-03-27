@@ -27,11 +27,11 @@ public class Order implements Serializable {
 	@OneToMany(mappedBy = "order")
 	private List<ItemOrder> items = new ArrayList<>();
 	
-	@OneToOne
+	@OneToOne(optional = true)
 	@JoinColumn(name = "student_id")
 	private Student student;
 
-	@OneToOne
+	@OneToOne(optional = true)
 	@JoinColumn(name = "school_id")
 	private School school;
 	

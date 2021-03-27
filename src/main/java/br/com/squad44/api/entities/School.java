@@ -34,7 +34,7 @@ public class School implements Serializable {
 	@OneToMany(mappedBy = "school")
 	private List<Student> students = new ArrayList<>();
 	
-	@OneToOne(mappedBy = "school")
+	@OneToOne(optional = true, mappedBy = "school")
 	private Order order;
 	
 	public School() {

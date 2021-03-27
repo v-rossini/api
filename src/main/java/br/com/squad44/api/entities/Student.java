@@ -30,7 +30,7 @@ public class Student implements Serializable {
 	@JoinColumn(name = "parent_id")
 	private Parent parent;
 	
-	@OneToOne(mappedBy = "student")
+	@OneToOne(optional = true, mappedBy = "student")
 	private Order order;
 	
 	
