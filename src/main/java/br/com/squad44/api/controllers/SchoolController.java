@@ -1,9 +1,12 @@
 package br.com.squad44.api.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +23,13 @@ public class SchoolController {
     @GetMapping
     public List<School> getList() {
         return (List<School>) schoolRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<School> getOne(@PathVariable Long id) {
+        Optional<School> school = schoolRepository.findById(id);
+        if(school.isPresent())
+            return ResponseEntity.ok(school.get());
+            else return ResponseEntity.notFound().build();
     }
 }
