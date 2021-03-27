@@ -1,5 +1,9 @@
 package br.com.squad44.api.controllers.form;
 
+import br.com.squad44.api.entities.ItemOrder;
+import br.com.squad44.api.repositories.ItemRepository;
+import br.com.squad44.api.repositories.OrderRepository;
+
 public class ItemOrderForm {
     
     private Long itemId;    
@@ -29,5 +33,8 @@ public class ItemOrderForm {
     public Long getOrderId() {
         return OrderId;
     }
-    
+
+    public ItemOrder convert(ItemRepository itemRepository, OrderRepository orderRepository) {
+        return new ItemOrder(itemRepository.findById(itemId).get(), quantity, orderRepository.findById(OrderId).get());
+    } 
 }
