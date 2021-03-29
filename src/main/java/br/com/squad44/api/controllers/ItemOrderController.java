@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.controllers.form.ItemOrderForm;
 import br.com.squad44.api.dto.ItemOrderDTO;
-import br.com.squad44.api.entities.ItemOrder;
 import br.com.squad44.api.repositories.ItemOrderRepository;
 import br.com.squad44.api.repositories.ItemRepository;
 import br.com.squad44.api.repositories.OrderRepository;

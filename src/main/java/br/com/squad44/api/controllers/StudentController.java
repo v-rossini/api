@@ -1,7 +1,6 @@
 package br.com.squad44.api.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.controllers.form.StudentForm;
 import br.com.squad44.api.dto.StudentDTO;
-import br.com.squad44.api.entities.Student;
 import br.com.squad44.api.repositories.ParentRepository;
 import br.com.squad44.api.repositories.SchoolRepository;
 import br.com.squad44.api.repositories.StudentRepository;
