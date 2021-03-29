@@ -1,7 +1,6 @@
 package br.com.squad44.api.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.squad44.api.entities.School;
+import br.com.squad44.api.dto.SchoolDTO;
 import br.com.squad44.api.repositories.SchoolRepository;
+import br.com.squad44.api.services.SchoolService;
 
 @RestController
 @RequestMapping("/school")
@@ -19,22 +19,25 @@ public class SchoolController {
     
     @Autowired
     SchoolRepository schoolRepository;
+    
+    @Autowired
+    SchoolService service;
 
     @GetMapping
-    public List<School> getList() {
-        return (List<School>) schoolRepository.findAll();
+    public List<SchoolDTO> getList() {
+    	List<SchoolDTO> list = service.getList();
+        return list;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<School> getById(@PathVariable Long id) {
-        Optional<School> school = schoolRepository.findById(id);
-        if(school.isPresent())
-            return ResponseEntity.ok(school.get());
-            else return ResponseEntity.notFound().build();
+    public ResponseEntity<SchoolDTO> getById(@PathVariable Long id) {
+    	ResponseEntity<SchoolDTO> school = service.getById(id);
+    	return school;
     }
 
     @GetMapping("/{name}")
-    public List<School> getByName(@PathVariable String name) {
-        return schoolRepository.findByName(name);
+    public List<SchoolDTO> getByName(@PathVariable String name) {
+        List<SchoolDTO> list = service.getByName(name);
+        return list;
     }
 }
