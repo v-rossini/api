@@ -20,4 +20,10 @@ public class StudentServiceTest {
         StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
         assertEquals(200, service.register(form).getStatusCode().value());
     }
+
+    @Test
+    public void getByIdTest() {
+        StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
+        service.register(form);        
+    }
 }
