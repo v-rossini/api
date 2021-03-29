@@ -20,7 +20,7 @@ public class StudentServiceTest {
     @Test
     public void registerTest() {
         StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
-        assertEquals(200, service.register(form).getStatusCode().value());
+        assertEquals(200, service.register(form).getStatusCodeValue());
     }
 
     @Test
