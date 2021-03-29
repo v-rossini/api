@@ -20,6 +20,12 @@ public class StudentForm {
     @NotNull
 	private Long parentId;
 
+    public StudentForm(String name, Long schoolId, Long parentId) {
+        this.name = name;
+        this.schoolId = schoolId;
+        this.parentId = parentId;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
