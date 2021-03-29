@@ -31,5 +31,9 @@ public class StudentDTO implements Serializable {
 		this.parent = student.getParent();
 		this.order = student.getOrder();
 	}
+
+	public Long getId() {
+		return id;
+	}
 	
 }
