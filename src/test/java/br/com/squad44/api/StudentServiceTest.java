@@ -1,16 +1,23 @@
 package br.com.squad44.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.squad44.api.controllers.form.StudentForm;
-import br.com.squad44.api.entities.Student;
+import br.com.squad44.api.services.StudentService;
 
 @SpringBootTest
 public class StudentServiceTest {
 
+    @Autowired
+    StudentService service;
+
     @Test
     public void registerTest() {
-        StudentForm student = new StudentForm("Fulano da Silva",1L,1L);
+        StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
+        assertEquals(220, service.register(form).getStatusCode());
     }
 }
