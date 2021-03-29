@@ -24,6 +24,7 @@ public class StudentServiceTest {
     @Test
     public void getByIdTest() {
         StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
-        service.register(form);        
+        service.register(form);
+        assertEquals(200, service.getById(0L));        
     }
 }
