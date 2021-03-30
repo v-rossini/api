@@ -2,9 +2,6 @@ package br.com.squad44.api.dto;
 
 import java.io.Serializable;
 
-import br.com.squad44.api.entities.Order;
-import br.com.squad44.api.entities.Parent;
-import br.com.squad44.api.entities.School;
 import br.com.squad44.api.entities.Student;
 
 public class StudentDTO implements Serializable {
