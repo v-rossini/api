@@ -1,5 +1,9 @@
 package br.com.squad44.api.controllers.form;
 
+import br.com.squad44.api.entities.Donation;
+import br.com.squad44.api.repositories.DonatorRepository;
+import br.com.squad44.api.repositories.ItemOrderRepository;
+
 public class DonationForm {
     
     private Integer quantity;
@@ -30,5 +34,7 @@ public class DonationForm {
         return itemOrderId;
     }
 
-    
+    public Donation convert(DonatorRepository donatorRepository, ItemOrderRepository itemOrderRepository) {
+        return new Donation(quantity, donatorRepository.findById(donatorId).get(), itemOrderRepository.findById(itemOrderId).get());
+    }
 }
