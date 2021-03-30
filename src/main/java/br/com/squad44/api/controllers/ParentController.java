@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.dto.ParentDTO;
-import br.com.squad44.api.dto.StudentDTO;
 import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.repositories.ParentRepository;
 import br.com.squad44.api.services.ParentService;
