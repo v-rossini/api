@@ -31,14 +31,12 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ItemDTO> getById(@PathVariable Long id) {
-    	ResponseEntity<ItemDTO> item = service.getById(id);
-    	return item;
+    	return service.getById(id);
     }
 
     @GetMapping("/search")
     public List<ItemDTO> getByName(@RequestParam("name") String name) {
-        List<ItemDTO> list = service.getByName(name);
-        return list;
+        return service.getByName(name);
     }
 
 }

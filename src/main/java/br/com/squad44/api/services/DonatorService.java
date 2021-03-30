@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.squad44.api.dto.DonatorDTO;
-import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.entities.Donator;
-import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.repositories.DonatorRepository;
 
 @Service
