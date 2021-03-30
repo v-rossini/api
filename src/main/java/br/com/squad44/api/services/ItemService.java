@@ -41,5 +41,11 @@ public class ItemService {
     	List<Item> list = (List<Item>) repository.findItemByProduct(name);
     	return list.stream().map(item -> new ItemDTO(item)).collect(Collectors.toList());
 }
+	
+	@Transactional(readOnly = true)
+    public List<ItemDTO> getByType(String type) {
+    	List<Item> list = (List<Item>) repository.findItemByCategory(type);
+    	return list.stream().map(item -> new ItemDTO(item)).collect(Collectors.toList());
+}
 
 }
