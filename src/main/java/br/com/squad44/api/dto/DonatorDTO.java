@@ -18,7 +18,7 @@ public class DonatorDTO implements Serializable {
 	private String city;
 	private String state;
 	private String cpf;
-	private List<Long> donations = new ArrayList<>();
+	private List<DonationDTO> donations = new ArrayList<>();
 	
 	public DonatorDTO() {
 		
@@ -32,7 +32,8 @@ public class DonatorDTO implements Serializable {
 		this.city = donator.getCity();
 		this.state = donator.getState();
 		this.cpf = donator.getCpf();
-		this.donations = donator.getDonations().stream().map(donation -> donation.getId()).collect(Collectors.toList());
+		this.donations = donator.getDonations().stream().map(donation -> new DonationDTO(donation))
+				.collect(Collectors.toList());
 	}
 
 	public void setId(Long id) {
@@ -91,7 +92,7 @@ public class DonatorDTO implements Serializable {
 		return cpf;
 	}
 
-	public List<Long> getDonations() {
+	public List<DonationDTO> getDonations() {
 		return donations;
 	}
 }

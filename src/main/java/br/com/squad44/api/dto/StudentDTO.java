@@ -26,7 +26,8 @@ public class StudentDTO implements Serializable {
 		this.schoolName = student.getSchool().getName();
 		this.parentId = student.getParent().getId();
 		this.parentName = student.getParent().getName();
-		this.orderId = student.getOrder().getId();
+		if (student.getOrder() != null)
+			this.orderId = student.getOrder().getId();
 	}
 
 	public void setId(Long id) {
@@ -82,7 +83,7 @@ public class StudentDTO implements Serializable {
 	}
 
 	public Long getOrderId() {
-		return orderId;
+				return orderId;
 	}
 	
 }

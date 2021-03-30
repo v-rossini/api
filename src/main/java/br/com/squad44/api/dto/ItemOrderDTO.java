@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.squad44.api.entities.Donation;
 import br.com.squad44.api.entities.Item;
@@ -12,8 +13,7 @@ import br.com.squad44.api.entities.Order;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 public class ItemOrderDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -22,9 +22,10 @@ public class ItemOrderDTO implements Serializable {
 	private Integer quantity;
 	private Integer received;
 	private LocalDateTime instant;
-	private Item item;
-	private Order order;
-	private List<Donation> donations = new ArrayList<>();
+	private Long itemId;
+	private String itemProduct;
+	private Long orderId;
+	private List<DonationDTO> donations = new ArrayList<>();
 	
 	public ItemOrderDTO() {
 		
@@ -35,9 +36,14 @@ public class ItemOrderDTO implements Serializable {
 		this.quantity = itemOrder.getQuantity();
 		this.received = itemOrder.getReceived();
 		this.instant = itemOrder.getInstant();
-		this.item = itemOrder.getItem();
-		this.order = itemOrder.getOrder();
-		this.donations = itemOrder.getDonations();
+		this.itemId = itemOrder.getItem().getId();
+		this.itemProduct = itemOrder.getItem().getProduct();
+		this.orderId = itemOrder.getOrder().getId();
+		if (itemOrder.getDonations() != null)
+		this.donations = itemOrder.getDonations().stream().map(donation -> new DonationDTO(donation))
+				.collect(Collectors.toList());
 	}
+
+	
 
 }
