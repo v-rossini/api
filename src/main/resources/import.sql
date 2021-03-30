@@ -8,11 +8,11 @@ INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('a
 INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('rua monsieur gustavo freire, 250', 'são joão del rey', 'm-ribeiroa@hotmail.com', 'Marcos Vinicius Ribeiro', '3391423566', '03224588956', 'MG');
 INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('rua presidente costa e silva, 1000', 'juiz de fora', 'mrv@hotmail.com', 'Maria Rita Valdetta', '3191423566', '13542699874', 'MG');
 
-INSERT INTO tb_student (NAME, PARENT_ID, SCHOOL_ID) VALUES ('Raissa Garcia','1','1');
-INSERT INTO tb_student (NAME, PARENT_ID, SCHOOL_ID) VALUES ('Diego Oliveira','2','2');
-INSERT INTO tb_student (NAME, PARENT_ID, SCHOOL_ID) VALUES ('Márcia Santos','3','3');
-INSERT INTO tb_student (NAME, PARENT_ID, SCHOOL_ID) VALUES ('Latícia Tavares','4','4');
-INSERT INTO tb_student (NAME, PARENT_ID, SCHOOL_ID) VALUES ('Douglas Salgado','4','4');
+INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Raissa Garcia', 11, '1','1');
+INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Diego Oliveira', 10, '2','2');
+INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Márcia Santos', 8, '3','3');
+INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Letícia Tavares', 16, '4','4');
+INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Douglas Salgado', 12, '4','4');
 
 INSERT INTO tb_donator (CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('Juiz de Fora', 'let-guajajara@hotmail.com', 'Letícia Guajajara', '3298457513', '35541266874', 'MG');
 

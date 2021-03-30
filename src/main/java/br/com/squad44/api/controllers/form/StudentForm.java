@@ -13,6 +13,9 @@ public class StudentForm {
     
     @NotNull @NotEmpty @Length(min = 5)
     private String name;
+    
+    @NotNull @NotEmpty
+    private Integer idade;
 
     @NotNull
     private Long schoolId;
@@ -51,7 +54,7 @@ public class StudentForm {
     }
 
     public Student convert(SchoolRepository schoolRepository, ParentRepository parentRepository) {
-        return new Student(name, schoolRepository.findById(schoolId).get(), parentRepository.findById(parentId).get());
+        return new Student(name, schoolRepository.findById(schoolId).get(), parentRepository.findById(parentId).get(), idade);
     }
     
 }

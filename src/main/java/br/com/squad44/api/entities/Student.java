@@ -33,15 +33,18 @@ public class Student implements Serializable {
 	@OneToOne(optional = true, mappedBy = "student")
 	private Order order;
 	
+	private Integer idade;
+	
 	
 	public Student () {
 	}
 
-	public Student(String name, School school, Parent parent) {
+	public Student(String name, School school, Parent parent, Integer idade) {
 		super();
 		this.name = name;		
 		this.school = school;
 		this.parent = parent;
+		this.setIdade(idade);
 	}
 
 	public Long getId() {
@@ -107,6 +110,14 @@ public class Student implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
 	}
 	
 	

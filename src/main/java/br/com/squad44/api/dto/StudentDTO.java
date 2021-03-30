@@ -13,6 +13,7 @@ public class StudentDTO implements Serializable {
 
 	private Long id;
 	private String name;
+	private Integer idade;
 	private Long schoolId;
 	private String schoolName;
 	private Long parentId;
@@ -26,6 +27,7 @@ public class StudentDTO implements Serializable {
 	public StudentDTO (Student student) {
 		this.id = student.getId();
 		this.name = student.getName();
+		this.setIdade(student.getIdade());
 		this.schoolId = student.getSchool().getId();
 		this.schoolName = student.getSchool().getName();
 		this.parentId = student.getParent().getId();
@@ -96,6 +98,14 @@ public class StudentDTO implements Serializable {
 
 	public List<ItemOrderDTO> getItemOrder() {
 		return itemOrder;
+	}
+
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
 	}
 	
 }
