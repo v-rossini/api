@@ -28,7 +28,7 @@ public class DonationService {
     @Transactional
     public ResponseEntity<DonationDTO> register(DonationForm form) {
         Donation donation = form.convert(donatorRepository, itemOrderRepository);
-        repository.save(donation);
+        repository.save(donation);        
         return ResponseEntity.ok().body(new DonationDTO(donation));
     }
 

@@ -3,6 +3,7 @@ package br.com.squad44.api.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class DonationController {
     DonationService service;
 
     @PostMapping
-    public ResponseEntity<DonationDTO> register(DonationForm form) {
+    public ResponseEntity<DonationDTO> register(@RequestBody DonationForm form) {
         return service.register(form);
     }
 }
