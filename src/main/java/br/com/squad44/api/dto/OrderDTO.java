@@ -5,12 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.squad44.api.entities.ItemOrder;
 import br.com.squad44.api.entities.Order;
-import br.com.squad44.api.entities.School;
-import br.com.squad44.api.entities.Student;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class OrderDTO implements Serializable {
@@ -18,11 +13,11 @@ public class OrderDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private List<ItemOrderDTO> items = new ArrayList<>();
 	private Long studentId;
 	private String studentName;
 	private Long schoolId;
 	private String schoolName;
+	private List<ItemOrderDTO> items = new ArrayList<>();
 	
 	public OrderDTO() {
 		

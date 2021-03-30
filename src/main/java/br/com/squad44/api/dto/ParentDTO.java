@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.squad44.api.entities.Parent;
-import br.com.squad44.api.entities.Student;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class ParentDTO implements Serializable {

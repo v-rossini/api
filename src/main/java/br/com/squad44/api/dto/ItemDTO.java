@@ -6,10 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.squad44.api.entities.Item;
-import br.com.squad44.api.entities.ItemOrder;
 import br.com.squad44.api.entities.enums.Category;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class ItemDTO implements Serializable {

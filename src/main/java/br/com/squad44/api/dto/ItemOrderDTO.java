@@ -6,12 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.squad44.api.entities.Donation;
-import br.com.squad44.api.entities.Item;
 import br.com.squad44.api.entities.ItemOrder;
-import br.com.squad44.api.entities.Order;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class ItemOrderDTO implements Serializable {
@@ -42,6 +37,66 @@ public class ItemOrderDTO implements Serializable {
 		if (itemOrder.getDonations() != null)
 		this.donations = itemOrder.getDonations().stream().map(donation -> new DonationDTO(donation))
 				.collect(Collectors.toList());
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public Integer getReceived() {
+		return received;
+	}
+
+	public void setReceived(Integer received) {
+		this.received = received;
+	}
+
+	public LocalDateTime getInstant() {
+		return instant;
+	}
+
+	public void setInstant(LocalDateTime instant) {
+		this.instant = instant;
+	}
+
+	public Long getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getItemProduct() {
+		return itemProduct;
+	}
+
+	public void setItemProduct(String itemProduct) {
+		this.itemProduct = itemProduct;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public List<DonationDTO> getDonations() {
+		return donations;
 	}
 
 	
