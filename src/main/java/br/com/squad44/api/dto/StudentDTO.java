@@ -1,6 +1,8 @@
 package br.com.squad44.api.dto;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.squad44.api.entities.Student;
 
@@ -15,6 +17,7 @@ public class StudentDTO implements Serializable {
 	private Long parentId;
 	private String parentName;
 	private Long orderId;
+	private List<ItemOrderDTO> itemOrder;
 
 	public StudentDTO() {		
 	}
@@ -26,8 +29,12 @@ public class StudentDTO implements Serializable {
 		this.schoolName = student.getSchool().getName();
 		this.parentId = student.getParent().getId();
 		this.parentName = student.getParent().getName();
-		if (student.getOrder() != null)
+		if (student.getOrder() != null) {
 			this.orderId = student.getOrder().getId();
+			if (student.getOrder().getItems() != null)
+				this.itemOrder = student.getOrder().getItems()
+								.stream().map(item -> new ItemOrderDTO(item)).collect(Collectors.toList());
+		}
 	}
 
 	public void setId(Long id) {
@@ -84,6 +91,10 @@ public class StudentDTO implements Serializable {
 
 	public Long getOrderId() {
 				return orderId;
+	}
+
+	public List<ItemOrderDTO> getItemOrder() {
+		return itemOrder;
 	}
 	
 }

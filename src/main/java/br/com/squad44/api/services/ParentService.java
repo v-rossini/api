@@ -1,5 +1,7 @@
 package br.com.squad44.api.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,14 @@ public class ParentService {
         Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
         repository.save(parent);
         return ResponseEntity.ok().body(new ParentDTO(parent));
+    }
+    
+    @Transactional(readOnly = true)
+    public ResponseEntity<ParentDTO> getById(Long id) {
+        Optional<Parent> parent = repository.findById(id);
+        if(parent.isPresent())
+            return ResponseEntity.ok(new ParentDTO(parent.get()));
+        else return ResponseEntity.notFound().build();
     }
 	
 	
