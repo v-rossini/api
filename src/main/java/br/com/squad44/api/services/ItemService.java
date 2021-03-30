@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.squad44.api.dto.ItemDTO;
 import br.com.squad44.api.entities.Item;
-import br.com.squad44.api.entities.enums.Category;
 import br.com.squad44.api.repositories.ItemRepository;
 
 @Service

@@ -26,19 +26,16 @@ public class SchoolController {
 
     @GetMapping
     public List<SchoolDTO> getList() {
-    	List<SchoolDTO> list = service.getList();
-        return list;
+        return service.getList();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<SchoolDTO> getById(@PathVariable Long id) {
-    	ResponseEntity<SchoolDTO> school = service.getById(id);
-    	return school;
+    	return service.getById(id);
     }
 
     @GetMapping("/search")
     public List<SchoolDTO> getByName(@RequestParam("name") String name) {
-        List<SchoolDTO> list = service.getByName(name);
-        return list;
+        return service.getByName(name);
     }
 }
