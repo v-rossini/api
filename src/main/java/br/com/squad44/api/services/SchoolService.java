@@ -37,4 +37,10 @@ public class SchoolService {
     	List<School> list = (List<School>) repository.findByName(name);
     	return list.stream().map(school -> new SchoolDTO(school)).collect(Collectors.toList());
     }
+	
+	@Transactional(readOnly = true)
+    public List<SchoolDTO> getByCity(String city) {
+    	List<School> list = (List<School>) repository.findSchoolByCity(city);
+    	return list.stream().map(school -> new SchoolDTO(school)).collect(Collectors.toList());
+    }
 }

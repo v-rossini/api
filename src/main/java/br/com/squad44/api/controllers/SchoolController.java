@@ -38,4 +38,9 @@ public class SchoolController {
     public List<SchoolDTO> getByName(@RequestParam("name") String name) {
         return service.getByName(name);
     }
+    
+    @GetMapping("/search/city")
+    public List<SchoolDTO> getByCity(@RequestParam("city") String city) {
+        return service.getByCity(city);
+    }
 }
