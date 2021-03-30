@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.squad44.api.dto.ItemDTO;
 import br.com.squad44.api.entities.Item;
+import br.com.squad44.api.entities.enums.Category;
 import br.com.squad44.api.repositories.ItemRepository;
 
 @Service
@@ -40,12 +41,6 @@ public class ItemService {
     public List<ItemDTO> getByName(String name) {
     	List<Item> list = (List<Item>) repository.findItemByProduct(name);
     	return list.stream().map(item -> new ItemDTO(item)).collect(Collectors.toList());
-}
-	
-	@Transactional(readOnly = true)
-    public List<ItemDTO> getByType(String type) {
-    	List<Item> list = (List<Item>) repository.findItemByCategory(type);
-    	return list.stream().map(item -> new ItemDTO(item)).collect(Collectors.toList());
-}
+	}
 
 }
