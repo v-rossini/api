@@ -1,6 +1,7 @@
 package br.com.squad44.api.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,7 @@ public class StudentDTO implements Serializable {
 	private Long parentId;
 	private String parentName;
 	private Long orderId;
-	private List<ItemOrderDTO> itemOrder;
+	private List<ItemOrderDTO> itemOrder = new ArrayList<>();
 
 	public StudentDTO() {		
 	}

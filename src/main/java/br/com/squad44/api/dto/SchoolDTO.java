@@ -19,8 +19,9 @@ public class SchoolDTO implements Serializable {
 	private String address;
 	private String state;
 	private SchoolType type;	
-	private Long orderId;
 	private List<StudentDTO> students = new ArrayList<>();
+	private Long orderId;
+	private List<ItemOrderDTO> itemOrder = new ArrayList<>();
 	
 	public SchoolDTO() {
 	}
@@ -35,8 +36,12 @@ public class SchoolDTO implements Serializable {
 		if (school.getStudents() != null)
 				this.students = school.getStudents().stream().map(student -> new StudentDTO(student))
 										.collect(Collectors.toList());
-		if (school.getOrder() != null)
+		if (school.getOrder() != null) {
 			this.setOrderId(school.getOrder().getId());
+			if (school.getOrder().getItems() != null)
+				this.itemOrder = school.getOrder().getItems()
+								.stream().map(item -> new ItemOrderDTO(item)).collect(Collectors.toList());
+		}
 	}
 
 	public Long getId() {
@@ -97,6 +102,10 @@ public class SchoolDTO implements Serializable {
 
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
+	}
+
+	public List<ItemOrderDTO> getItemOrder() {
+		return itemOrder;
 	}
 	
 	
