@@ -25,7 +25,7 @@ public class Donation implements Serializable {
 	private LocalDateTime instant;
 
 	@ManyToOne(optional = true)
-	@JoinColumn(name = "game_id")
+	@JoinColumn(name = "donator_id")
 	private Donator donator;
 
 	@ManyToOne
