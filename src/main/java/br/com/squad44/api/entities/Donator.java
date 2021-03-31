@@ -23,9 +23,7 @@ public class Donator implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String phone;
-	@Column(unique = true)
-	private String email;
+	private String phone;	
 	private String city;
 	private String state;
 	@Column(unique = true)
@@ -37,11 +35,10 @@ public class Donator implements Serializable {
 	public Donator() {		
 	}
 
-	public Donator(String name, String phone, String email, String city, String state, String cpf) {
+	public Donator(String name, String phone, String city, String state, String cpf) {
 		super();
 		this.name = name;
 		this.phone = phone;
-		this.email = email;
 		this.city = city;
 		this.state = state;
 		this.cpf = cpf;		
@@ -69,14 +66,6 @@ public class Donator implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getCity() {

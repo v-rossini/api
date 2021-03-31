@@ -14,7 +14,6 @@ public class DonatorDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String phone;
-	private String email;
 	private String city;
 	private String state;
 	private String cpf;
@@ -28,7 +27,6 @@ public class DonatorDTO implements Serializable {
 		this.id = donator.getId();
 		this.name = donator.getName();
 		this.phone = donator.getPhone();
-		this.email = donator.getEmail();
 		this.city = donator.getCity();
 		this.state = donator.getState();
 		this.cpf = donator.getCpf();
@@ -58,14 +56,6 @@ public class DonatorDTO implements Serializable {
 
 	public String getPhone() {
 		return phone;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getEmail() {
-		return email;
 	}
 	
 	public void setCity(String city) {

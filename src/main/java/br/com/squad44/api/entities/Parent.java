@@ -24,8 +24,6 @@ public class Parent implements Serializable {
 	private Long id;
 	private String name;
 	private String phone;
-	@Column(unique = true)
-	private String email;
 	private String city;
 	private String address;
 	private String state;
@@ -68,18 +66,11 @@ public class Parent implements Serializable {
 	public String getPhone() {
 		return phone;
 	}
-	
-	public String getEmail() {
-		return email;
-	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
-	public void setEmail(String email) {
-		this.email= email ;
-	}
 	
 	public String getCity() {
 		return city;

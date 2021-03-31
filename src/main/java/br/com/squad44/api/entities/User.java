@@ -1,5 +1,6 @@
 package br.com.squad44.api.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long parentId;
     private Long DonatorId;
+    @Column(unique = true)
+	private String email;
     private String passoword;
 
     public User() {
@@ -36,6 +39,14 @@ public class User {
 
     public Long getDonatorId() {
         return DonatorId;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setPassoword(String passoword) {             
