@@ -8,4 +8,5 @@ import br.com.squad44.api.entities.Parent;
 @Repository
 public interface ParentRepository extends CrudRepository<Parent, Long> {
     
+    public Parent findByEmail(String email);
 }
