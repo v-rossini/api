@@ -34,8 +34,8 @@ public class ItemOrderService {
     }
 
     public ResponseEntity<ItemOrderDTO> updateQuantity(DonationForm form) {
-        ItemOrder itemOrder = itemOrderRepository.findById(form.getItemOrderId()).get();
-        itemOrder.setReceived(itemOrder.getReceived() + form.getQuantity());
+        ItemOrder itemOrder = itemOrderRepository.findById(form.getItemOrderId()).get();        
+        itemOrder.setReceived(form.getQuantity());
         itemOrderRepository.save(itemOrder);
         return ResponseEntity.ok().body(new ItemOrderDTO(itemOrder));
     }
