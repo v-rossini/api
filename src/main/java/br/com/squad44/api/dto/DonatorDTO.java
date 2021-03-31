@@ -18,6 +18,7 @@ public class DonatorDTO implements Serializable {
 	private String state;
 	private String cpf;
 	private List<DonationDTO> donations = new ArrayList<>();
+	private List<ItemDTO> items = new ArrayList<>();
 	
 	public DonatorDTO() {
 		
@@ -30,7 +31,11 @@ public class DonatorDTO implements Serializable {
 		this.city = donator.getCity();
 		this.state = donator.getState();
 		this.cpf = donator.getCpf();
+		if (donator.getDonations() != null)
 		this.donations = donator.getDonations().stream().map(donation -> new DonationDTO(donation))
+				.collect(Collectors.toList());
+		if (donator.getItems() != null)
+		this.items = donator.getItems().stream().map(item -> new ItemDTO(item))
 				.collect(Collectors.toList());
 	}
 
@@ -84,5 +89,9 @@ public class DonatorDTO implements Serializable {
 
 	public List<DonationDTO> getDonations() {
 		return donations;
+	}
+
+	public List<ItemDTO> getItems() {
+		return items;
 	}
 }
