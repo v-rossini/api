@@ -15,11 +15,12 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long parentId;
     private Long donatorId;
     @Column(unique = true)
 	private String email;
-    private String passoword;
+    private String password;
 
     public User() {
 
@@ -28,13 +29,13 @@ public class User {
     public User(Long parentId, String email, String password) {
         this.parentId = parentId;        
         this.email = email;
-        this.passoword = new BCryptPasswordEncoder().encode(password);
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public User(String email, String password, Long donatorId) {
         this.donatorId = donatorId;        
         this.email = email;
-        this.passoword = new BCryptPasswordEncoder().encode(passoword);
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public void setParentId(Long parentId) {
@@ -61,12 +62,12 @@ public class User {
         return email;
     }
 
-    public void setPassoword(String passoword) {             
-        this.passoword = new BCryptPasswordEncoder().encode(passoword);
+    public void setPassword(String passoword) {             
+        this.password = new BCryptPasswordEncoder().encode(passoword);
     }
 
-    public String getPassoword() {
-        return passoword;
+    public String getPassword() {
+        return password;
     }
 
 }
