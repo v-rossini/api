@@ -13,7 +13,6 @@ import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.entities.User;
-import br.com.squad44.api.repositories.ParentRepository;
 import br.com.squad44.api.repositories.UserRepository;
 
 @Service
@@ -23,10 +22,10 @@ public class UserService {
     UserRepository repository;
 
     @Autowired
-    ParentRepository parentRepository;
+    ParentService parentService;
 
     @Autowired
-    ParentService parentService;
+    DonatorService donatorService;
     
     public ResponseEntity<ParentDTO> registerParent(ParentRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
@@ -64,9 +63,17 @@ public class UserService {
     public ResponseEntity<DonatorDTO> registerDonator(DonatorRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
-
+            if(user.get().getDonatorId() == null) {
+                if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
+                    DonatorDTO donator = donatorService.register(form.convert()).getBody();                    
+                    user.get().setDonatorId(donator.getId());
+                    repository.save(user.get());
+                    return ResponseEntity.ok().body(donator);
+                } 
+            }
+            return ResponseEntity.badRequest().build();
         }
-        DonatorDTO donator = parentService.register(form.convert()).getBody();                    
+        DonatorDTO donator = donatorService.register(form.convert()).getBody();                    
         User newUser = new User(form.getEmail(), form.getPassword(), donator.getId());
         repository.save(newUser);
         return ResponseEntity.ok().body(donator);
