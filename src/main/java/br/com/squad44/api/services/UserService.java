@@ -27,7 +27,7 @@ public class UserService {
     @Autowired
     ParentService parentService;
     
-    public ResponseEntity<ParentDTO> register(ParentRegisterForm form) {
+    public ResponseEntity<ParentDTO> registerParent(ParentRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
             if(user.get().getParentId() == null) {
@@ -37,9 +37,9 @@ public class UserService {
                     repository.save(user.get());
                     return ResponseEntity.ok().body(parent);
                 } 
-                return ResponseEntity.status(500).build();                                
-            }            
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+                return ResponseEntity.badRequest().build();
+            }                        
+            return ResponseEntity.badRequest().build();
         }            
         ParentDTO parent = parentService.register(form.convert()).getBody();                    
         User newUser = new User(parent.getId(), form.getEmail(), form.getPassword());

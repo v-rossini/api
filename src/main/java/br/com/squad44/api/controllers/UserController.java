@@ -20,8 +20,8 @@ public class UserController {
     
 
     @PostMapping("/parent")
-    public ResponseEntity<ParentDTO> register(@RequestBody ParentRegisterForm form) {
-        return service.register(form);
+    public ResponseEntity<ParentDTO> registerParent(@RequestBody ParentRegisterForm form) {
+        return service.registerParent(form);
     }
     
 }
