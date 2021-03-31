@@ -25,10 +25,14 @@ public class DonationService {
     @Autowired
     ItemOrderRepository itemOrderRepository;
 
+    @Autowired
+    ItemOrderService itemOrderService;
+
     @Transactional
     public ResponseEntity<DonationDTO> register(DonationForm form) {
         Donation donation = form.convert(donatorRepository, itemOrderRepository);
-        repository.save(donation);        
+        repository.save(donation);               
+        itemOrderService.updateQuantity(form);
         return ResponseEntity.ok().body(new DonationDTO(donation));
     }
 
