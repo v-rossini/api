@@ -16,13 +16,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long parentId;
-    private Long DonatorId;
+    private Long donatorId;
     @Column(unique = true)
 	private String email;
     private String passoword;
 
     public User() {
 
+    }
+
+    public User(Long parentId, Long donatorId, String email, String password) {
+        this.parentId = parentId;
+        this.donatorId = donatorId;
+        this.email = email;
+        this.passoword = new BCryptPasswordEncoder().encode(passoword);
     }
 
     public void setParentId(Long parentId) {
@@ -34,11 +41,11 @@ public class User {
     }
 
     public void setDonatorId(Long donatorId) {
-        DonatorId = donatorId;
+        this.donatorId = donatorId;
     }
 
     public Long getDonatorId() {
-        return DonatorId;
+        return donatorId;
     }
 
     public void setEmail(String email) {

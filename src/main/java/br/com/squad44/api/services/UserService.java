@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import br.com.squad44.api.controllers.form.ParentLoginForm;
 import br.com.squad44.api.dto.ParentDTO;
+import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.entities.User;
+import br.com.squad44.api.repositories.ParentRepository;
 import br.com.squad44.api.repositories.UserRepository;
 
 @Service
@@ -18,14 +20,16 @@ public class UserService {
     UserRepository repository;
 
     @Autowired
-    ParentService parentService;
+    ParentRepository parentRepository;
     
     public ResponseEntity<ParentDTO> register(ParentLoginForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
-
+            
         } else {
-
+            Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
+            parentRepository.save(parent);
+            User newUser = new User();
         }
     }
 }
