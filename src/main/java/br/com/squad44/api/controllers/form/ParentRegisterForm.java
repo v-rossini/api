@@ -1,5 +1,7 @@
 package br.com.squad44.api.controllers.form;
 
+import br.com.squad44.api.entities.Parent;
+
 public class ParentRegisterForm {
     
     private String email;
@@ -73,5 +75,9 @@ public class ParentRegisterForm {
 
     public String getCpf() {
         return cpf;
+    }
+    
+    public Parent convert() {
+        return new Parent(name, phone, city, address, state, cpf);
     }
 }
