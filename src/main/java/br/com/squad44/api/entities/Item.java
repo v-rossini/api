@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,6 +31,10 @@ public class Item implements Serializable {
 
 	@OneToMany(mappedBy = "item")
 	private List<ItemOrder> orders = new ArrayList<>();
+	
+	@ManyToMany
+	private List<Donator> donators = new ArrayList<>();
+
 
 	public Item() {
 	}
@@ -118,6 +123,10 @@ public class Item implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public List<Donator> getDonators() {
+		return donators;
 	}
 
 

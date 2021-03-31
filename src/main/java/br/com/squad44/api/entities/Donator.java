@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +34,9 @@ public class Donator implements Serializable {
 	
 	@OneToMany(mappedBy = "donator")
 	private List<Donation> donations = new ArrayList<>();
+	
+	@ManyToMany(mappedBy = "donators")
+	private List<Item> items = new ArrayList<>();
 
 	public Donator() {		
 	}
@@ -132,6 +136,10 @@ public class Donator implements Serializable {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public List<Item> getItems() {
+		return items;
 	}
 	
 	
