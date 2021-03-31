@@ -1,6 +1,6 @@
 package br.com.squad44.api.controllers.form;
 
-public class ParentLoginForm {
+public class ParentRegisterForm {
     
     private String email;
     private String password;
