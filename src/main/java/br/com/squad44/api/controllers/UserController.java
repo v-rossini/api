@@ -29,5 +29,9 @@ public class UserController {
     public ResponseEntity<ParentDTO> authParent(@RequestBody UserAuthForm form) {
         return service.authParent(form);
     }
-    
+
+    @PostMapping("/donator")
+    public ResponseEntity<ParentDTO> registerDonator(@RequestBody DonatorRegisterForm form) {
+        return service.registerParent(form);
+    }
 }
