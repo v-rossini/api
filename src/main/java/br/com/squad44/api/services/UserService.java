@@ -3,6 +3,7 @@ package br.com.squad44.api.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -22,28 +23,27 @@ public class UserService {
 
     @Autowired
     ParentRepository parentRepository;
+
+    @Autowired
+    ParentService parentService;
     
     public ResponseEntity<ParentDTO> register(ParentRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
-            if(user.get().getParentId() != null) {
-                return ResponseEntity.status(500).build();
-            } else {
+            if(user.get().getParentId() == null) {
                 if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
-                    Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
-                    parentRepository.save(parent);
+                    ParentDTO parent = parentService.register(form.convert()).getBody();                    
                     user.get().setParentId(parent.getId());
-                    return ResponseEntity.ok().body(new ParentDTO(parent));
-                } else {
-                    return ResponseEntity.status(500).build();
-                }                
-            }
-        } else {
-            Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
-            parentRepository.save(parent);
-            User newUser = new User(parent.getId(), form.getEmail(), form.getPassword());
-            repository.save(newUser);
-            return ResponseEntity.ok().body(new ParentDTO(parent));
-        }
+                    repository.save(user.get());
+                    return ResponseEntity.ok().body(parent);
+                } 
+                return ResponseEntity.status(500).build();                                
+            }            
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }            
+        ParentDTO parent = parentService.register(form.convert()).getBody();                    
+        User newUser = new User(parent.getId(), form.getEmail(), form.getPassword());
+        repository.save(newUser);
+        return ResponseEntity.ok().body(parent);
     }
 }
