@@ -25,11 +25,13 @@ public class UserService {
     public ResponseEntity<ParentDTO> register(ParentLoginForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
-            
+            return ResponseEntity.ok().body(new ParentDTO());
         } else {
             Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
             parentRepository.save(parent);
-            User newUser = new User();
+            User newUser = new User(parent.getId(), form.getEmail(), form.getPassword());
+            repository.save(newUser);
+            return ResponseEntity.ok().body(new ParentDTO(parent));
         }
     }
 }
