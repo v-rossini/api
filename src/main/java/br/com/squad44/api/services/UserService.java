@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.squad44.api.controllers.form.DonatorRegisterForm;
 import br.com.squad44.api.controllers.form.ParentRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
+import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.ParentRepository;
@@ -60,9 +61,14 @@ public class UserService {
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<ParentDTO> registerDonator(DonatorRegisterForm form) {
+    public ResponseEntity<DonatorDTO> registerDonator(DonatorRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
+
         }
+        DonatorDTO donator = parentService.register(form.convert()).getBody();                    
+        User newUser = new User(form.getEmail(), form.getPassword(), donator.getId());
+        repository.save(newUser);
+        return ResponseEntity.ok().body(donator);
     }
 }

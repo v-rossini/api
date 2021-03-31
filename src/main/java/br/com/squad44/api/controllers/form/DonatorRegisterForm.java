@@ -2,6 +2,8 @@ package br.com.squad44.api.controllers.form;
 
 import javax.validation.constraints.NotNull;
 
+import br.com.squad44.api.entities.Donator;
+
 public class DonatorRegisterForm {
 
     @NotNull
@@ -71,5 +73,9 @@ public class DonatorRegisterForm {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public Donator convert() {
+        return new Donator(name, phone, city, state, cpf);
     }
 }

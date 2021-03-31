@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.squad44.api.controllers.form.DonatorRegisterForm;
 import br.com.squad44.api.controllers.form.ParentRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
+import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.services.UserService;
 
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/donator")
-    public ResponseEntity<ParentDTO> registerDonator(@RequestBody DonatorRegisterForm form) {
+    public ResponseEntity<DonatorDTO> registerDonator(@RequestBody DonatorRegisterForm form) {
         return service.registerDonator(form);
     }
 }
