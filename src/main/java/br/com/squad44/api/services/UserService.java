@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.squad44.api.controllers.form.ParentLoginForm;
@@ -25,7 +27,18 @@ public class UserService {
     public ResponseEntity<ParentDTO> register(ParentLoginForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
-            return ResponseEntity.ok().body(new ParentDTO());
+            if(user.get().getParentId() != null) {
+                return ResponseEntity.status(500).build();
+            } else {
+                if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
+                    Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
+                    parentRepository.save(parent);
+                    user.get().setParentId(parent.getId());
+                    return ResponseEntity.ok().body(new ParentDTO(parent));
+                } else {
+                    return ResponseEntity.status(500).build();
+                }                
+            }
         } else {
             Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
             parentRepository.save(parent);
