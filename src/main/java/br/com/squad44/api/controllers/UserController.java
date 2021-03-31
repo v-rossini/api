@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.controllers.form.ParentRegisterForm;
+import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.services.UserService;
 
@@ -22,6 +23,11 @@ public class UserController {
     @PostMapping("/parent")
     public ResponseEntity<ParentDTO> registerParent(@RequestBody ParentRegisterForm form) {
         return service.registerParent(form);
+    }
+
+    @PostMapping("/parent/auth")
+    public ResponseEntity<ParentDTO> authParent(@RequestBody UserAuthForm form) {
+        return service.authParent(form);
     }
     
 }

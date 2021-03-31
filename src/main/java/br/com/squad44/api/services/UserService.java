@@ -46,4 +46,8 @@ public class UserService {
         repository.save(newUser);
         return ResponseEntity.ok().body(parent);
     }
+
+    public ResponseEntity<ParentDTO> authParent(UserAuthForm form) {
+
+    }
 }
