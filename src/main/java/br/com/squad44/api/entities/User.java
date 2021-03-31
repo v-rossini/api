@@ -25,9 +25,14 @@ public class User {
 
     }
 
-    public User(Long parentId, Long donatorId, String email, String password) {
-        this.parentId = parentId;
-        this.donatorId = donatorId;
+    public User(Long parentId, String email, String password) {
+        this.parentId = parentId;        
+        this.email = email;
+        this.passoword = new BCryptPasswordEncoder().encode(passoword);
+    }
+
+    public User(String email, String password, Long donatorId) {
+        this.donatorId = donatorId;        
         this.email = email;
         this.passoword = new BCryptPasswordEncoder().encode(passoword);
     }
