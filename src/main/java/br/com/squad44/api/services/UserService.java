@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import br.com.squad44.api.controllers.form.DonatorRegisterForm;
 import br.com.squad44.api.controllers.form.ParentRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.ParentDTO;
@@ -57,5 +58,11 @@ public class UserService {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    public ResponseEntity<ParentDTO> registerDonator(DonatorRegisterForm form) {
+        Optional<User> user = repository.findByEmail(form.getEmail());
+        if(user.isPresent()) {
+        }
     }
 }
