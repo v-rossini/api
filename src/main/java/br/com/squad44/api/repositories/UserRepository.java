@@ -8,10 +8,13 @@ import org.springframework.data.repository.CrudRepository;
 import br.com.squad44.api.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    
-    @Query("select u from User u where u.parentId = ?1")
-    Optional<User> findByParentId(Long id);
-
+        
     @Query("select u from User u where u.email = ?1")
     Optional<User> findByEmail(String email);
+
+    @Query("select u from User u where u.parentId = ?1")
+    Optional<User> findByParentId(Long parentId);
+
+    @Query("select u from User u where u.email = ?1")
+    Optional<User> findByDonator(Long donatorId);
 }
