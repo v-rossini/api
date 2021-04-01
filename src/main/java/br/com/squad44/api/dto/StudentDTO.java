@@ -36,7 +36,7 @@ public class StudentDTO implements Serializable {
 			this.orderId = student.getOrder().getId();
 			if (student.getOrder().getItems() != null)
 				this.itemOrder = student.getOrder().getItems().stream()
-									.map(item -> new ItemOrderDTO(item)).filter(x -> x.isCompleted())
+									.map(item -> new ItemOrderDTO(item)).filter(x -> !x.isCompleted())
 										.collect(Collectors.toList());
 		}
 	}

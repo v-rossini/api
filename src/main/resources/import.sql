@@ -66,4 +66,5 @@ insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) 
 insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '2', '0', '2', '5');
 
 
-insert into tb_donation (QUANTITY, DONATOR_ID, ITEM_ORDER_ID) values (30, 1, 8);
+insert into tb_donation (QUANTITY, DONATOR_ID, ITEM_ORDER_ID) values (30, 1, 1);
+insert into tb_donation (QUANTITY, DONATOR_ID, ITEM_ORDER_ID) values (3, 2, 2);

@@ -32,7 +32,7 @@ public class ItemDTO implements Serializable {
 		this.manufacturer = item.getManufacturer();
 		this.description = item.getDescription();
 		this.price = item.getPrice();
-		this.orders = item.getOrders().stream().map(itemOrder -> new ItemOrderDTO(itemOrder)).filter(x -> x.isCompleted())
+		this.orders = item.getOrders().stream().map(itemOrder -> new ItemOrderDTO(itemOrder)).filter(x -> !x.isCompleted())
 				.collect(Collectors.toList());
 	}
 
