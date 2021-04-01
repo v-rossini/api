@@ -1,19 +1,11 @@
 package br.com.squad44.api.services;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import br.com.squad44.api.controllers.form.UserRegisterForm;
-import br.com.squad44.api.controllers.form.UserAuthForm;
-import br.com.squad44.api.dto.DonatorDTO;
-import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.dto.UserDTO;
-import br.com.squad44.api.entities.Donator;
-import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.UserRepository;
 
@@ -33,10 +25,8 @@ public class UserService {
         User user = new User(form.getEmail(), form.getPassword(), form.getCity(), form.getDistrict(), form.getNumber(), 
                             form.getCep(), form.getAddress(), form.getState(), form.getCpf(), form.getName(), form.getPhone());
         repository.save(user);
-        Donator donator = donatorService.register(user).getBody();
-        Parent parent = parentService.register(user).getBody();
-        user.setDonator(donator);
-        user.setParent(parent);
+        user.setDonator(donatorService.register(user).getBody());
+        user.setParent(parentService.register(user).getBody());
         repository.save(user);
         return ResponseEntity.ok().body(new UserDTO(user));
     }
