@@ -13,11 +13,6 @@ public class DonatorDTO implements Serializable {
 	
 	private Long id;
 	private String name;
-	private String phone;
-	private String city;
-	private String address;
-	private String state;
-	private String cpf;
 	private List<DonationDTO> donations = new ArrayList<>();
 	private List<ItemDTO> items = new ArrayList<>();
 	
@@ -27,12 +22,7 @@ public class DonatorDTO implements Serializable {
 	
 	public DonatorDTO(Donator donator) {
 		this.id = donator.getId();
-		this.name = donator.getName();
-		this.phone = donator.getPhone();
-		this.city = donator.getCity();
-		this.address = donator.getAddress();
-		this.state = donator.getState();
-		this.cpf = donator.getCpf();
+		this.name = donator.getUser().getName();
 		if (donator.getDonations() != null)
 		this.donations = donator.getDonations().stream().map(donation -> new DonationDTO(donation))
 				.collect(Collectors.toList());
@@ -55,46 +45,6 @@ public class DonatorDTO implements Serializable {
 
 	public String getName() {
 		return name;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-	
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getCpf() {
-		return cpf;
 	}
 
 	public List<DonationDTO> getDonations() {

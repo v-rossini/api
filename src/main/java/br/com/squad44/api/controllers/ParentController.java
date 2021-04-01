@@ -24,11 +24,12 @@ public class ParentController {
     @Autowired
     ParentService service;
 
-
+    /*
     @PostMapping
     public ResponseEntity<ParentDTO> register(@RequestBody Parent form) {
         return service.register(form);
     }
+    */
     
     @GetMapping("/{id}")
     public ResponseEntity<ParentDTO> getById(@PathVariable Long id) {

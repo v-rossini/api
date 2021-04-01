@@ -24,11 +24,13 @@ public class DonatorService {
             return ResponseEntity.ok(new DonatorDTO(donator.get()));
         else return ResponseEntity.notFound().build();
     }
-	
+
+	/*
     @Transactional
     public ResponseEntity<DonatorDTO> register(Donator form) {
         Donator donator = new Donator(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
         repository.save(donator);
         return ResponseEntity.ok().body(new DonatorDTO(donator));
     }
+    */
 }

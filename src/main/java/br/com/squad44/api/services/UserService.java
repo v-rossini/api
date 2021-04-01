@@ -26,7 +26,8 @@ public class UserService {
 
     @Autowired
     DonatorService donatorService;
-    
+ 
+    /*
     public ResponseEntity<ParentDTO> registerParent(UserRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
@@ -48,7 +49,8 @@ public class UserService {
         repository.save(newUser);
         return ResponseEntity.ok().body(parent);
     }
-
+    
+    
     public ResponseEntity<ParentDTO> authParent(UserAuthForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
@@ -80,4 +82,5 @@ public class UserService {
         repository.save(newUser);
         return ResponseEntity.ok().body(donator);
     }
+    */
 }

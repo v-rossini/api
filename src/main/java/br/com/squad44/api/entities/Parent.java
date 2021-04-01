@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -22,13 +23,10 @@ public class Parent implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String phone;
-	private String city;
-	private String address;
-	private String state;
-	@Column(unique = true)
-	private String cpf;
+
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@OneToMany(mappedBy = "parent")
 	private List<Student> dependents = new ArrayList<>();
@@ -37,14 +35,9 @@ public class Parent implements Serializable {
 		
 	}
 
-	public Parent(String name, String phone, String city, String address, String state, String cpf) {
+	public Parent(User user) {
 		super();		
-		this.name = name;
-		this.phone = phone;
-		this.city = city;
-		this.address = address;
-		this.state = state;
-		this.cpf = cpf;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -55,50 +48,11 @@ public class Parent implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
-	
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}	
 	
 	public List<Student> getDependents() {
 		return dependents;
 	}
 	
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	@Override
 	public int hashCode() {
@@ -125,12 +79,13 @@ public class Parent implements Serializable {
 		return true;
 	}
 
-	public String getState() {
-		return state;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	

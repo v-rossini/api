@@ -31,7 +31,7 @@ public class StudentDTO implements Serializable {
 		this.schoolId = student.getSchool().getId();
 		this.schoolName = student.getSchool().getName();
 		this.parentId = student.getParent().getId();
-		this.parentName = student.getParent().getName();
+		this.parentName = student.getParent().getUser().getName();
 		if (student.getOrder() != null) {
 			this.orderId = student.getOrder().getId();
 			if (student.getOrder().getItems() != null)

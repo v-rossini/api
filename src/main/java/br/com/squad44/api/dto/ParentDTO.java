@@ -13,12 +13,8 @@ public class ParentDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	private Long userId;
 	private String name;
-	private String phone;
-	private String city;
-	private String address;
-	private String state;
-	private String cpf;
 	private List<StudentDTO> dependents = new ArrayList<>();
 	
 	public ParentDTO() {
@@ -27,12 +23,8 @@ public class ParentDTO implements Serializable {
 	
 	public ParentDTO(Parent parent) {
 		this.id = parent.getId();
-		this.name = parent.getName();
-		this.phone = parent.getPhone();
-		this.city = parent.getCity();
-		this.address = parent.getAddress();
-		this.state = parent.getState();
-		this.cpf = parent.getCpf();
+		this.userId = parent.getUser().getId();
+		this.name = parent.getUser().getName();
 		if (parent.getDependents() != null)
 			this.dependents = parent.getDependents().stream().map(student -> new StudentDTO(student))
 				.collect(Collectors.toList());
@@ -54,48 +46,16 @@ public class ParentDTO implements Serializable {
 		this.name = name;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
 	public List<StudentDTO> getDependents() {
 		return dependents;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	
 	

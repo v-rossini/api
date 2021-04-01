@@ -76,7 +76,7 @@ public class UserRegisterForm {
     public String getCpf() {
         return cpf;
     }
-
+    /*
     public Parent convertToParent() {
         return new Parent(name, phone, city, address, state, cpf);
     }
@@ -84,5 +84,5 @@ public class UserRegisterForm {
     public Donator convertToDonator() {
         return new Donator(name, phone, city, address, state, cpf);
     }
-
+	*/
 }

@@ -17,6 +17,7 @@ import br.com.squad44.api.services.UserService;
 @RequestMapping("/user")
 public class UserController {
 
+	/*
     @Autowired
     UserService service;
     
@@ -35,4 +36,5 @@ public class UserController {
     public ResponseEntity<DonatorDTO> registerDonator(@RequestBody UserRegisterForm form) {
         return service.registerDonator(form);
     }
+    */
 }

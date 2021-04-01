@@ -28,9 +28,11 @@ public class DonatorController {
     public ResponseEntity<DonatorDTO> getById(@PathVariable Long id) {
     	return service.getById(id);
     }
-    
+  
+    /*
     @PostMapping
     public ResponseEntity<DonatorDTO> register(@RequestBody Donator form) {
         return service.register(form);
     }
+    */
 }

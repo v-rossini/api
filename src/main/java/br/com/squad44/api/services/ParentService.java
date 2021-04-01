@@ -17,12 +17,14 @@ public class ParentService {
     @Autowired
     ParentRepository repository;
 
+    /*
     @Transactional
     public ResponseEntity<ParentDTO> register(Parent form) {
         Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
         repository.save(parent);
         return ResponseEntity.ok().body(new ParentDTO(parent));
     }
+    */
     
     @Transactional(readOnly = true)
     public ResponseEntity<ParentDTO> getById(Long id) {

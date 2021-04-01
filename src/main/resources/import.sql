@@ -1,24 +1,69 @@
-INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Avenida João Pinheiro, 450', 'Belo Horizonte', 'escola@afonsopena.com', 'Escola Estadual Afonso Pena', '3135901590', '2', 'MG');
-INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Rua Severino Meireles, 250', 'Juiz de Fora', 'degraus@colegio.com', 'Sistema Degraus de Ensino', '3256897410', '0', 'MG');
-INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Praça dos Espedicionários, 1', 'São João Del Rey', 'maria-teresa-escola@hotmail.com', 'Escola Municipal maria Teresa', '33321548741', '1', 'MG');
-INSERT INTO tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, TYPE, STATE) VALUES ('Rua da Luz Interior, 360', 'Juiz de Fora', 'admin-mg@ifes.com', 'Instituto Federal do Sudeste Mineiro - MG', '32326574141', '3', 'MG');
+insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua mto louca', '36985214', 'belo horizonte', '05874122856', 'pampulha','email@hotmiau.com', 'marcos vinicius ribeiro', '196', 'a1a2a3qwe', '32155754', 'mg');
 
-INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('Avenida sete de setembro, 650', 'Juiz de Fora', 'joao-moreira@hotmail.com', 'João Moreira', '3291038886', '06575416311', 'MG');
-INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('avenida getulio vargas, 900', 'belo horizonte', 'carla-morattori@gmail.com', 'carla morattori', '319989879', '54112633879', 'MG');
-INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('rua monsieur gustavo freire, 250', 'são joão del rey', 'm-ribeiroa@hotmail.com', 'Marcos Vinicius Ribeiro', '3391423566', '03224588956', 'MG');
-INSERT INTO tb_parent (ADDRESS, CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('rua presidente costa e silva, 1000', 'juiz de fora', 'mrv@hotmail.com', 'Maria Rita Valdetta', '3191423566', '13542699874', 'MG');
+insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das esmeraldas', '36962251', 'são joão del rey', '15023394727', 'centro','email@gmail.com', 'lais botelho', '420', 'senhamosegura', '32311410', 'mg');
 
-INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Raissa Garcia', 11, '1','1');
-INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Diego Oliveira', 10, '2','2');
-INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Márcia Santos', 8, '3','3');
-INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Letícia Tavares', 16, '4','4');
-INSERT INTO tb_student (NAME, IDADE, PARENT_ID, SCHOOL_ID) VALUES ('Douglas Salgado', 12, '4','4');
 
-INSERT INTO tb_donator (CITY, EMAIL, NAME, PHONE, CPF, STATE) VALUES ('Juiz de Fora', 'let-guajajara@hotmail.com', 'Letícia Guajajara', '3298457513', '35541266874', 'MG');
+insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das cachoeiras', '47147121', 'big field', '22036744851', 'centro','3m41l@bol.com', 'leticia tavares', '420', 'soumtodoida', '984576985', 'rj');
 
-INSERT INTO tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) VALUES ('3', 'Autor: Fiodr Dostoievsky', '', '20.00', 'O Idiota');
 
-INSERT INTO tb_order (student_id) VALUES ('4');
-INSERT INTO tb_order (school_id) VALUES ('1');
+insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das eras', '25416898', 'conselheiro lafaiete', '54987455632', 'hortencias','eitaquesaco@gmail.com', 'marco aurelio vilhena', '870', 'manokkk', '32416854', 'mg');
 
-INSERT INTO tb_item_order (QUANTITY, ITEM_ID, ORDER_ID, RECEIVED) VALUES ('1', '1', '1', 0);
+insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua da luz interior', '28745628', 'rio de janeiro', '59856320145', 'bairro aleatorio','alguemmesalve@gmail.com', 'vinicius de paula', '8550', 'naguentomais', '35427845', 'rj');
+
+
+insert into tb_donator (user_id) values (1);
+insert into tb_donator (user_id) values (2);
+insert into tb_donator (user_id) values (3);
+insert into tb_donator (user_id) values (4);
+insert into tb_donator (user_id) values (5); 
+
+
+insert into tb_parent (user_id) values (4);
+insert into tb_parent (user_id) values (5);
+
+
+insert into tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, STATE, TYPE) values ('av. presidente costa e silva', 'belo horizonte', 'escola@hotmail.com', 'escola municipal afonso pena', '3245785684', 'mg', '0');
+
+insert into tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, STATE, TYPE) values ('av. rio branco', 'sao joao del rey', 'escola@gmail.com', 'escola estadual juscelino kubitchek', '32145784', 'mg', '1');
+
+insert into tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, STATE, TYPE) values ('rua das garças', 'rio de janeiro', '35c014a@hotmail.com', 'colegio militar federal', '32541268', 'rj', '2');
+
+insert into tb_school (ADDRESS, CITY, EMAIL, NAME, PHONE, STATE, TYPE) values ('av. itamar franco', 'juiz de fora', '35c014@gmail.com', 'instituição degraus d eensino', '325687484', 'mg', '3');
+
+
+
+insert into tb_student (IDADE, NAME, PARENT_ID, SCHOOL_ID) values (12, 'leticia tavares', 1, 1);  
+
+insert into tb_student (IDADE, NAME, PARENT_ID, SCHOOL_ID) values (10, 'marcelo felício', 1, 1);
+
+insert into tb_student (IDADE, NAME, PARENT_ID, SCHOOL_ID) values (10, 'raissa garcia', 2, 3);
+
+insert into tb_student (IDADE, NAME, PARENT_ID, SCHOOL_ID) values (7, 'bruno fernandes', 2, 2);
+
+
+insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (0, '', '', 2.0, 'Lapis');
+insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (0, '', '', 8.0, 'Caderno');
+insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (1, '', '', 22.0, 'Livro de Fisica');
+insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (2, 'Autor: Dostoievsky', '', 15.0, 'O idiota');
+insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (3, '', '', 40.0, 'Bola de treino');
+
+insert into tb_order (school_id) values (1);
+insert into tb_order (school_id) values (2);
+insert into tb_order (student_id) values (1);
+insert into tb_order (student_id) values (2);
+insert into tb_order (student_id) values (3);
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (true, 30, 30, 1, 1);
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values  (false, '10', '3', '2', '2');
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '5', '0', '5', '2');
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '3', '3');
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '4', '4');
+
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '2', '0', '2', '5');
+
+
+insert into tb_donation (QUANTITY, DONATOR_ID, ITEM_ORDER_ID) values (30, 1, 8);

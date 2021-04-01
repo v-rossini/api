@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -23,13 +25,10 @@ public class Donator implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String phone;	
-	private String city;
-	private String address;
-	private String state;
-	@Column(unique = true)
-	private String cpf;
+
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@OneToMany(mappedBy = "donator")
 	private List<Donation> donations = new ArrayList<>();
@@ -40,14 +39,9 @@ public class Donator implements Serializable {
 	public Donator() {		
 	}
 
-	public Donator(String name, String phone, String city, String address, String state, String cpf) {
+	public Donator(User user) {
 		super();
-		this.name = name;
-		this.phone = phone;
-		this.city = city;
-		this.address = address;
-		this.state = state;
-		this.cpf = cpf;		
+		this.setUser(user);	
 	}
 
 	public Long getId() {
@@ -58,42 +52,8 @@ public class Donator implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
 	public List<Donation> getDonations() {
 		return donations;
-	}
-	
-	
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	@Override
@@ -121,24 +81,16 @@ public class Donator implements Serializable {
 		return true;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	public List<Item> getItems() {
 		return items;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	
