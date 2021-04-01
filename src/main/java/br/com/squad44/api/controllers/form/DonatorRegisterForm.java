@@ -16,6 +16,7 @@ public class DonatorRegisterForm {
     private String name;
 	private String phone;	
 	private String city;
+    private String address;
 	private String state;	
 	private String cpf;
 
@@ -76,6 +77,6 @@ public class DonatorRegisterForm {
     }
 
     public Donator convert() {
-        return new Donator(name, phone, city, state, cpf);
+        return new Donator(name, phone, city, address, state, cpf);
     }
 }

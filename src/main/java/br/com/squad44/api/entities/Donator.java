@@ -26,6 +26,7 @@ public class Donator implements Serializable {
 	private String name;
 	private String phone;	
 	private String city;
+	private String address;
 	private String state;
 	@Column(unique = true)
 	private String cpf;
@@ -39,11 +40,12 @@ public class Donator implements Serializable {
 	public Donator() {		
 	}
 
-	public Donator(String name, String phone, String city, String state, String cpf) {
+	public Donator(String name, String phone, String city, String address, String state, String cpf) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.city = city;
+		this.address = address;
 		this.state = state;
 		this.cpf = cpf;		
 	}
@@ -117,6 +119,14 @@ public class Donator implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAddress() {
+		return address;
 	}
 
 	public String getState() {

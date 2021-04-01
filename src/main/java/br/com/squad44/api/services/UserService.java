@@ -12,6 +12,7 @@ import br.com.squad44.api.controllers.form.ParentRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
+import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.UserRepository;
 
@@ -32,7 +33,9 @@ public class UserService {
         if(user.isPresent()) {
             if(user.get().getParentId() == null) {
                 if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
-                    ParentDTO parent = parentService.register(form.convert()).getBody();                    
+                    DonatorDTO donator = donatorService.getById(user.get().getDonatorId()).getBody();
+                    ParentDTO parent = parentService.register(new Parent(donator.getName(), donator.getPhone(), donator.getCity(), 
+                                                                donator.getAddress(), donator.getState(), donator.getCpf())).getBody();                    
                     user.get().setParentId(parent.getId());
                     repository.save(user.get());
                     return ResponseEntity.ok().body(parent);

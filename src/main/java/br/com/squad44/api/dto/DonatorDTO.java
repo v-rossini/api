@@ -15,6 +15,7 @@ public class DonatorDTO implements Serializable {
 	private String name;
 	private String phone;
 	private String city;
+	private String address;
 	private String state;
 	private String cpf;
 	private List<DonationDTO> donations = new ArrayList<>();
@@ -29,6 +30,7 @@ public class DonatorDTO implements Serializable {
 		this.name = donator.getName();
 		this.phone = donator.getPhone();
 		this.city = donator.getCity();
+		this.address = donator.getAddress();
 		this.state = donator.getState();
 		this.cpf = donator.getCpf();
 		if (donator.getDonations() != null)
@@ -69,6 +71,14 @@ public class DonatorDTO implements Serializable {
 
 	public String getCity() {
 		return city;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAddress() {
+		return address;
 	}
 
 	public void setState(String state) {
