@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.dto.UserDTO;
 import br.com.squad44.api.entities.User;
@@ -29,6 +30,10 @@ public class UserService {
         user.setParent(parentService.register(user).getBody());
         repository.save(user);
         return ResponseEntity.ok().body(new UserDTO(user));
+    }
+
+    public ResponseEntity<UserDTO> auth(UserAuthForm form) {
+        return ResponseEntity.ok().build();
     }
  
     /*

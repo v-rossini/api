@@ -27,20 +27,10 @@ public class UserController {
     public ResponseEntity<UserDTO> register(@RequestBody UserRegisterForm form) {
         return service.register(form);
     }
-    /*
-    @PostMapping("/parent")
-    public ResponseEntity<ParentDTO> registerParent(@RequestBody UserRegisterForm form) {
-        return service.registerParent(form);
+    
+    @PostMapping("/auth")
+    public ResponseEntity<UserDTO> auth(@RequestBody UserAuthForm form) {
+        return service.auth(form);
     }
 
-    @PostMapping("/parent/auth")
-    public ResponseEntity<ParentDTO> authParent(@RequestBody UserAuthForm form) {
-        return service.authParent(form);
-    }
-
-    @PostMapping("/donator")
-    public ResponseEntity<DonatorDTO> registerDonator(@RequestBody UserRegisterForm form) {
-        return service.registerDonator(form);
-    }
-    */
 }
