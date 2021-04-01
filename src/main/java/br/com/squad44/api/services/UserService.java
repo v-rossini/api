@@ -1,7 +1,10 @@
 package br.com.squad44.api.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import br.com.squad44.api.controllers.form.UserAuthForm;
@@ -33,7 +36,14 @@ public class UserService {
     }
 
     public ResponseEntity<UserDTO> auth(UserAuthForm form) {
-        return ResponseEntity.ok().build();
+        Optional<User> user = repository.findByEmail(form.getEmail());
+        if(user.isPresent()) {
+            if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
+                return ResponseEntity.ok().body(new UserDTO(user.get()));
+            }
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
  
     /*
