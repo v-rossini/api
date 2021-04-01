@@ -28,9 +28,7 @@ public class User {
 	private String email;
     private String password;
 
-    //endereço
-	private String phone;
-	private String name;
+    //endereço	
 	private String city;
 	private String district;
 	private String number;
@@ -41,9 +39,34 @@ public class User {
 	@Column(unique = true)
 	private String cpf;
 
+	private String name;
+	private String phone;
+	
+
     public User() {
 
     }
+
+	public User(Parent parent, Donator donator, String email, String password, String city, String district, String number, 
+				String cep, String address, String state, String cpf, String name, String phone) {
+		
+		this.parent = parent;
+		this.donator = donator;
+		
+		this.email = email;
+		this.password = new BCryptPasswordEncoder().encode(password);
+
+		this.city = city;
+		this.district = district;
+		this.number = number;
+		this.cep = cep;
+		this.address = address;
+		this.state = state;
+
+		this.cpf = cpf;
+		this.name = name;
+		this.phone = phone;
+	}
 
     public Long getId() {
 		return id;
@@ -185,8 +208,8 @@ public class User {
 
 
 
-	public void setPassword(String passoword) {             
-        this.password = new BCryptPasswordEncoder().encode(passoword);
+	public void setPassword(String password) {             
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public String getPassword() {

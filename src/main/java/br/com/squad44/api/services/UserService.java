@@ -11,6 +11,7 @@ import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
+import br.com.squad44.api.dto.UserDTO;
 import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.UserRepository;
@@ -27,7 +28,7 @@ public class UserService {
     @Autowired
     DonatorService donatorService;
 
-    public ResponseEntity<?> register(UserRegisterForm form) {
+    public ResponseEntity<UserDTO> register(UserRegisterForm form) {
         return ResponseEntity.ok().build();
     }
  

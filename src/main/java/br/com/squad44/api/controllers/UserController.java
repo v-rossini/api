@@ -11,6 +11,7 @@ import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
+import br.com.squad44.api.dto.UserDTO;
 import br.com.squad44.api.services.UserService;
 
 @RestController
@@ -23,7 +24,7 @@ public class UserController {
     
 
     @PostMapping
-    public ResponseEntity<?> register(@RequestBody UserRegisterForm form) {
+    public ResponseEntity<UserDTO> register(@RequestBody UserRegisterForm form) {
         return service.register(form);
     }
     /*
