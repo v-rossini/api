@@ -27,6 +27,7 @@ public class ItemOrder implements Serializable {
 	private Integer quantity;
 	private Integer received = 0;
 	private LocalDateTime instant;
+	private boolean isCompleted = false;
 	
 	@ManyToOne
 	@JoinColumn(name = "item_id")
@@ -122,6 +123,14 @@ public class ItemOrder implements Serializable {
 
 	public LocalDateTime getInstant() {
 		return instant;
+	}
+
+	public boolean isCompleted() {
+		return isCompleted;
+	}
+
+	public void setCompleted(boolean isCompleted) {
+		this.isCompleted = isCompleted;
 	}
 
 

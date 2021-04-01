@@ -40,7 +40,8 @@ public class SchoolDTO implements Serializable {
 			this.setOrderId(school.getOrder().getId());
 			if (school.getOrder().getItems() != null)
 				this.itemOrder = school.getOrder().getItems()
-								.stream().map(item -> new ItemOrderDTO(item)).collect(Collectors.toList());
+								.stream().map(item -> new ItemOrderDTO(item)).filter(x -> x.isCompleted())
+									.collect(Collectors.toList());
 		}
 	}
 

@@ -21,6 +21,7 @@ public class ItemOrderDTO implements Serializable {
 	private String itemProduct;
 	private Long orderId;
 	private List<DonationDTO> donations = new ArrayList<>();
+	private boolean isCompleted;
 	
 	public ItemOrderDTO() {
 		
@@ -34,6 +35,7 @@ public class ItemOrderDTO implements Serializable {
 		this.itemId = itemOrder.getItem().getId();
 		this.itemProduct = itemOrder.getItem().getProduct();
 		this.orderId = itemOrder.getOrder().getId();
+		this.isCompleted = itemOrder.isCompleted();
 		if (itemOrder.getDonations() != null)
 		this.donations = itemOrder.getDonations().stream().map(donation -> new DonationDTO(donation))
 				.collect(Collectors.toList());
@@ -97,6 +99,14 @@ public class ItemOrderDTO implements Serializable {
 
 	public List<DonationDTO> getDonations() {
 		return donations;
+	}
+
+	public boolean isCompleted() {
+		return isCompleted;
+	}
+
+	public void setCompleted(boolean isCompleted) {
+		this.isCompleted = isCompleted;
 	}
 
 	
