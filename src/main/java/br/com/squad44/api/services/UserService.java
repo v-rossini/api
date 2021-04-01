@@ -12,6 +12,7 @@ import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.dto.UserDTO;
+import br.com.squad44.api.entities.Donator;
 import br.com.squad44.api.entities.Parent;
 import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.UserRepository;
@@ -29,8 +30,11 @@ public class UserService {
     DonatorService donatorService;
 
     public ResponseEntity<UserDTO> register(UserRegisterForm form) {
-        User user = new User(form.getEmail(), form.getPassword(), form.getCity())
-
+        User user = new User(form.getEmail(), form.getPassword(), form.getCity(), form.getDistrict(), form.getNumber(), 
+                            form.getCep(), form.getAddress(), form.getState(), form.getCpf(), form.getName(), form.getPhone());
+        repository.save(user);
+        Donator donator = donatorService.register(user).getBody();
+        Parent parent = parentService.register(user);
         return ResponseEntity.ok().build();
     }
  

@@ -27,10 +27,10 @@ public class DonatorService {
     }
 
     @Transactional
-    public ResponseEntity<DonatorDTO> register(User user) {
-        Donator donator = new Donator();
+    public ResponseEntity<Donator> register(User user) {
+        Donator donator = new Donator(user);
         repository.save(donator);
-        return ResponseEntity.ok().body(new DonatorDTO(donator));
+        return ResponseEntity.ok().body(donator);
     }
 
 }
