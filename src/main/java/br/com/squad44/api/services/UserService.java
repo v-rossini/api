@@ -26,6 +26,10 @@ public class UserService {
 
     @Autowired
     DonatorService donatorService;
+
+    public ResponseEntity<?> register(UserRegisterForm form) {
+        return ResponseEntity.ok().build();
+    }
  
     /*
     public ResponseEntity<ParentDTO> registerParent(UserRegisterForm form) {

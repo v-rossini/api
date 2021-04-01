@@ -2,9 +2,6 @@ package br.com.squad44.api.controllers.form;
 
 import javax.validation.constraints.NotNull;
 
-import br.com.squad44.api.entities.Donator;
-import br.com.squad44.api.entities.Parent;
-
 public class UserRegisterForm {
 
     @NotNull
@@ -61,6 +58,14 @@ public class UserRegisterForm {
         return city;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -76,13 +81,5 @@ public class UserRegisterForm {
     public String getCpf() {
         return cpf;
     }
-    /*
-    public Parent convertToParent() {
-        return new Parent(name, phone, city, address, state, cpf);
-    }
 
-    public Donator convertToDonator() {
-        return new Donator(name, phone, city, address, state, cpf);
-    }
-	*/
 }

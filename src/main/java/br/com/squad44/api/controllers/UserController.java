@@ -17,11 +17,16 @@ import br.com.squad44.api.services.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-	/*
+	
     @Autowired
     UserService service;
     
 
+    @PostMapping
+    public ResponseEntity<?> register(@RequestBody UserRegisterForm form) {
+        return service.register(form);
+    }
+    /*
     @PostMapping("/parent")
     public ResponseEntity<ParentDTO> registerParent(@RequestBody UserRegisterForm form) {
         return service.registerParent(form);
