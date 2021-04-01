@@ -34,8 +34,11 @@ public class UserService {
                             form.getCep(), form.getAddress(), form.getState(), form.getCpf(), form.getName(), form.getPhone());
         repository.save(user);
         Donator donator = donatorService.register(user).getBody();
-        Parent parent = parentService.register(user);
-        return ResponseEntity.ok().build();
+        Parent parent = parentService.register(user).getBody();
+        user.setDonator(donator);
+        user.setParent(parent);
+        repository.save(user);
+        return ResponseEntity.ok().body(new UserDTO(user));
     }
  
     /*

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.entities.Parent;
+import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.ParentRepository;
 
 @Service
@@ -17,14 +18,14 @@ public class ParentService {
     @Autowired
     ParentRepository repository;
 
-    /*
+    
     @Transactional
-    public ResponseEntity<ParentDTO> register(Parent form) {
-        Parent parent = new Parent(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
+    public ResponseEntity<Parent> register(User user) {
+        Parent parent = new Parent(user);
         repository.save(parent);
-        return ResponseEntity.ok().body(new ParentDTO(parent));
+        return ResponseEntity.ok().body(parent);
     }
-    */
+    
     
     @Transactional(readOnly = true)
     public ResponseEntity<ParentDTO> getById(Long id) {
