@@ -3,8 +3,9 @@ package br.com.squad44.api.controllers.form;
 import javax.validation.constraints.NotNull;
 
 import br.com.squad44.api.entities.Donator;
+import br.com.squad44.api.entities.Parent;
 
-public class DonatorRegisterForm {
+public class UserRegisterForm {
 
     @NotNull
     private String email;
@@ -76,7 +77,12 @@ public class DonatorRegisterForm {
         return cpf;
     }
 
-    public Donator convert() {
+    public Parent convertToParent() {
+        return new Parent(name, phone, city, address, state, cpf);
+    }
+
+    public Donator convertToDonator() {
         return new Donator(name, phone, city, address, state, cpf);
     }
+
 }

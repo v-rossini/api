@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.squad44.api.controllers.form.DonatorRegisterForm;
-import br.com.squad44.api.controllers.form.ParentRegisterForm;
+import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
@@ -23,7 +22,7 @@ public class UserController {
     
 
     @PostMapping("/parent")
-    public ResponseEntity<ParentDTO> registerParent(@RequestBody ParentRegisterForm form) {
+    public ResponseEntity<ParentDTO> registerParent(@RequestBody UserRegisterForm form) {
         return service.registerParent(form);
     }
 
@@ -33,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/donator")
-    public ResponseEntity<DonatorDTO> registerDonator(@RequestBody DonatorRegisterForm form) {
+    public ResponseEntity<DonatorDTO> registerDonator(@RequestBody UserRegisterForm form) {
         return service.registerDonator(form);
     }
 }

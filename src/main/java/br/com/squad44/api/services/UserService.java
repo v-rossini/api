@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import br.com.squad44.api.controllers.form.DonatorRegisterForm;
-import br.com.squad44.api.controllers.form.ParentRegisterForm;
+import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.dto.ParentDTO;
@@ -28,7 +27,7 @@ public class UserService {
     @Autowired
     DonatorService donatorService;
     
-    public ResponseEntity<ParentDTO> registerParent(ParentRegisterForm form) {
+    public ResponseEntity<ParentDTO> registerParent(UserRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
             if(user.get().getParentId() == null) {
@@ -44,7 +43,7 @@ public class UserService {
             }                        
             return ResponseEntity.badRequest().build();
         }            
-        ParentDTO parent = parentService.register(form.convert()).getBody();                    
+        ParentDTO parent = parentService.register(form.convertToParent()).getBody();                    
         User newUser = new User(parent.getId(), form.getEmail(), form.getPassword());
         repository.save(newUser);
         return ResponseEntity.ok().body(parent);
@@ -63,12 +62,12 @@ public class UserService {
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<DonatorDTO> registerDonator(DonatorRegisterForm form) {
+    public ResponseEntity<DonatorDTO> registerDonator(UserRegisterForm form) {
         Optional<User> user = repository.findByEmail(form.getEmail());
         if(user.isPresent()) {
             if(user.get().getDonatorId() == null) {
                 if(BCrypt.checkpw(form.getPassword(), user.get().getPassword())) {
-                    DonatorDTO donator = donatorService.register(form.convert()).getBody();                    
+                    DonatorDTO donator = donatorService.register(form.convertToDonator()).getBody();                    
                     user.get().setDonatorId(donator.getId());
                     repository.save(user.get());
                     return ResponseEntity.ok().body(donator);
@@ -76,7 +75,7 @@ public class UserService {
             }
             return ResponseEntity.badRequest().build();
         }
-        DonatorDTO donator = donatorService.register(form.convert()).getBody();                    
+        DonatorDTO donator = donatorService.register(form.convertToDonator()).getBody();                    
         User newUser = new User(form.getEmail(), form.getPassword(), donator.getId());
         repository.save(newUser);
         return ResponseEntity.ok().body(donator);
