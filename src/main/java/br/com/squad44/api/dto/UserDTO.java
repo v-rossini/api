@@ -9,9 +9,7 @@ public class UserDTO {
     private Long donatorId;
 	private String email;
 
-    //endereço
-
-	private String name;
+    //endereço	
 	private String city;
 	private String district;
 	private String number;
@@ -20,6 +18,7 @@ public class UserDTO {
 	private String state;
 	
 	private String cpf;
+    private String name;
     private String phone;
 
     public UserDTO(User user) {

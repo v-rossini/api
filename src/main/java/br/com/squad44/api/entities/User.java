@@ -47,12 +47,8 @@ public class User {
 
     }
 
-	public User(Parent parent, Donator donator, String email, String password, String city, String district, String number, 
-				String cep, String address, String state, String cpf, String name, String phone) {
-		
-		this.parent = parent;
-		this.donator = donator;
-		
+	public User(String email, String password, String city, String district, String number, 
+				String cep, String address, String state, String cpf, String name, String phone) {				
 		this.email = email;
 		this.password = new BCryptPasswordEncoder().encode(password);
 

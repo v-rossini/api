@@ -8,15 +8,20 @@ public class UserRegisterForm {
     private String email;
     
     @NotNull
-    private String password;
+    private String password;    
+
+	private String city;
+    private String district;
+    private String number;
+	private String cep;
+    private String address;    
+	private String state;	
 
     @NotNull
     private String name;
+    private String cpf;
 	private String phone;	
-	private String city;
-    private String address;
-	private String state;	
-	private String cpf;
+	
 
     public void setEmail(String email) {
         this.email = email;
@@ -56,6 +61,30 @@ public class UserRegisterForm {
 
     public String getCity() {
         return city;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getCep() {
+        return cep;
     }
 
     public void setAddress(String address) {

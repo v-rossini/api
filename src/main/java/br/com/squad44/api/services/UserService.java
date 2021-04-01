@@ -29,6 +29,8 @@ public class UserService {
     DonatorService donatorService;
 
     public ResponseEntity<UserDTO> register(UserRegisterForm form) {
+        User user = new User(form.getEmail(), form.getPassword(), form.getCity())
+
         return ResponseEntity.ok().build();
     }
  

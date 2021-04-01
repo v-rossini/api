@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.squad44.api.dto.DonatorDTO;
 import br.com.squad44.api.entities.Donator;
+import br.com.squad44.api.entities.User;
 import br.com.squad44.api.repositories.DonatorRepository;
 
 @Service
@@ -26,8 +27,8 @@ public class DonatorService {
     }
 
     @Transactional
-    public ResponseEntity<DonatorDTO> register(Donator form) {
-        Donator donator = new Donator(form.getName(), form.getPhone(), form.getCity(), form.getAddress(), form.getState(), form.getCpf());
+    public ResponseEntity<DonatorDTO> register(User user) {
+        Donator donator = new Donator();
         repository.save(donator);
         return ResponseEntity.ok().body(new DonatorDTO(donator));
     }
