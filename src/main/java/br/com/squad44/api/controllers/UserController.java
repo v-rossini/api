@@ -1,5 +1,7 @@
 package br.com.squad44.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.controllers.form.UserRegisterForm;
 import br.com.squad44.api.controllers.form.UserAuthForm;
-import br.com.squad44.api.dto.DonatorDTO;
-import br.com.squad44.api.dto.ParentDTO;
 import br.com.squad44.api.dto.UserDTO;
 import br.com.squad44.api.services.UserService;
 
@@ -24,12 +24,12 @@ public class UserController {
     
 
     @PostMapping
-    public ResponseEntity<UserDTO> register(@RequestBody UserRegisterForm form) {
+    public ResponseEntity<UserDTO> register(@RequestBody @Valid UserRegisterForm form) {
         return service.register(form);
     }
     
     @PostMapping("/auth")
-    public ResponseEntity<UserDTO> auth(@RequestBody UserAuthForm form) {
+    public ResponseEntity<UserDTO> auth(@RequestBody @Valid UserAuthForm form) {
         return service.auth(form);
     }
 
