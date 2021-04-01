@@ -10,7 +10,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.squad44.api.dto.ItemDTO;
 import br.com.squad44.api.entities.Item;
