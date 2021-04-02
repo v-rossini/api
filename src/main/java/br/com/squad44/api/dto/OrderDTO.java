@@ -31,10 +31,12 @@ public class OrderDTO implements Serializable {
 		this.studentId = order.getStudent().getId();
 		this.studentName = order.getStudent().getName();
 		}
+		/*
 		if (order.getSchool() != null) {
 		this.schoolId = order.getSchool().getId();
 		this.schoolName = order.getSchool().getName();
 		}
+		*/
 	}
 
 	public Long getId() {

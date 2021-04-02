@@ -20,6 +20,6 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<OrderDTO> register(@RequestBody OrderForm form) {
-        service.register(form);
+        return service.register(form);
     }
 }
