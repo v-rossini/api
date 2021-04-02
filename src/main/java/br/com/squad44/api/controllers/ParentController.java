@@ -16,9 +16,6 @@ import br.com.squad44.api.services.ParentService;
 public class ParentController {
     
     @Autowired
-    ParentRepository parentRepository;
-    
-    @Autowired
     ParentService service;
     
     @GetMapping("/{id}")
