@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.dto.ItemDTO;
-import br.com.squad44.api.repositories.ItemRepository;
 import br.com.squad44.api.services.ItemService;
 
 @RestController
@@ -21,12 +20,7 @@ import br.com.squad44.api.services.ItemService;
 public class ItemController {
     
     @Autowired
-    ItemRepository itemRepository;
-    
-    @Autowired
     ItemService service;
-    
-
     
     @GetMapping()
     public List<ItemDTO> getList(){
