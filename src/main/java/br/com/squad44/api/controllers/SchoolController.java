@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.dto.SchoolDTO;
-import br.com.squad44.api.repositories.SchoolRepository;
 import br.com.squad44.api.services.SchoolService;
 
 @RestController
 @RequestMapping("/school")
 public class SchoolController {
-    
-    @Autowired
-    SchoolRepository schoolRepository;
     
     @Autowired
     SchoolService service;
