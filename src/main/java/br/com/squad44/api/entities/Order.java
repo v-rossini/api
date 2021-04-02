@@ -40,9 +40,8 @@ public class Order implements Serializable {
 	public Order() {		
 	}
 
-	public Order(List<ItemOrder> items, Student student) {
-		super();		
-		this.items = items;
+	public Order(Student student) {
+		super();				
 		this.student = student;
 	}
 

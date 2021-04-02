@@ -37,9 +37,11 @@ public class School implements Serializable {
 	@OneToMany(mappedBy = "school")
 	private List<Student> students = new ArrayList<>();
 	
+	/*
 	@OneToOne(optional = true, mappedBy = "school")
 	private Order order;
-	
+	*/
+
 	public School() {
 	}
 		
@@ -114,6 +116,7 @@ public class School implements Serializable {
 		return students;
 	}	
 	
+	/*
 	public Order getOrder() {
 		return order;
 	}
@@ -121,6 +124,7 @@ public class School implements Serializable {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	*/
 
 	@Override
 	public int hashCode() {
