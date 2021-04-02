@@ -27,11 +27,15 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     ParentRepository parentRepository;
+
+    @Autowired
+    OrderService orderService;
     
     @Transactional
     public ResponseEntity<StudentDTO> register(StudentForm form) {
         Student student = form.convert(schoolRepository, parentRepository);
         studentRepository.save(student);
+        orderService.register(student);
         return ResponseEntity.ok().body(new StudentDTO(student));
     }
     

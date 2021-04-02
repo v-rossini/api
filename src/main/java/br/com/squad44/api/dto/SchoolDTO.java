@@ -36,6 +36,7 @@ public class SchoolDTO implements Serializable {
 		if (school.getStudents() != null)
 				this.students = school.getStudents().stream().map(student -> new StudentDTO(student))
 										.collect(Collectors.toList());
+		/*
 		if (school.getOrder() != null) {
 			this.setOrderId(school.getOrder().getId());
 			if (school.getOrder().getItems() != null)
@@ -43,6 +44,7 @@ public class SchoolDTO implements Serializable {
 								.stream().map(item -> new ItemOrderDTO(item)).filter(x -> !x.isCompleted())
 									.collect(Collectors.toList());
 		}
+		*/
 	}
 
 	public Long getId() {
