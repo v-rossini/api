@@ -31,9 +31,11 @@ public class Order implements Serializable {
 	@JoinColumn(name = "student_id")
 	private Student student;
 
+	/*
 	@OneToOne(optional = true)
 	@JoinColumn(name = "school_id")
 	private School school;
+	*/
 	
 	public Order() {		
 	}
@@ -44,12 +46,14 @@ public class Order implements Serializable {
 		this.student = student;
 	}
 
+	/*
 	public Order(Long id, List<ItemOrder> items, School school) {
 		super();
 		this.id = id;
 		this.items = items;
 		this.school = school;
 	}
+	*/
 	
 	public Long getId() {
 		return id;
@@ -71,6 +75,7 @@ public class Order implements Serializable {
 		this.student = student;
 	}
 
+	/*
 	public School getSchool() {
 		return school;
 	}
@@ -78,6 +83,7 @@ public class Order implements Serializable {
 	public void setSchool(School school) {
 		this.school = school;
 	}
+	*/
 
 	@Override
 	public int hashCode() {
