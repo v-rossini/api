@@ -47,23 +47,19 @@ insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values
 insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (2, 'Autor: Dostoievsky', '', 15.0, 'O idiota');
 insert into tb_item (CATEGORY, DESCRIPTION, MANUFACTURER, PRICE, PRODUCT) values (3, '', '', 40.0, 'Bola de treino');
 
-insert into tb_order (school_id) values (1);
-insert into tb_order (school_id) values (2);
+
 insert into tb_order (student_id) values (1);
 insert into tb_order (student_id) values (2);
 insert into tb_order (student_id) values (3);
 
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (true, 30, 30, 1, 1);
 
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values  (false, '10', '3', '2', '2');
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '5', '0', '5', '1');
 
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '5', '0', '5', '2');
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '3', '2');
 
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '3', '3');
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '4', '2');
 
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '1', '0', '4', '4');
-
-insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '2', '0', '2', '5');
+insert into tb_item_order (IS_COMPLETED, QUANTITY, RECEIVED, ITEM_ID, ORDER_ID) values (false, '2', '0', '2', '3');
 
 
 insert into tb_donation (QUANTITY, DONATOR_ID, ITEM_ORDER_ID) values (30, 1, 1);
