@@ -8,15 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.squad44.api.dto.DonatorDTO;
-import br.com.squad44.api.repositories.DonatorRepository;
 import br.com.squad44.api.services.DonatorService;
 
 @RestController
 @RequestMapping("/donator")
 public class DonatorController {
-    
-    @Autowired
-    DonatorRepository donatorRepository;
     
     @Autowired
     DonatorService service;
