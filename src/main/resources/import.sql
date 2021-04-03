@@ -1,7 +1,11 @@
 insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua adhemar jesus', '36985214', 'belo horizonte', '05874122856', 'pampulha','email@hotmiau.com', 'marcos vinicius ribeiro', '196', 'a1a2a3qwe', '32155754', 'mg');
+
 insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das esmeraldas', '36962251', 'são joão del rey', '15023394727', 'centro','email@gmail.com', 'lais botelho', '420', 'senhamosegura', '32311410', 'mg');
+
 insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das cachoeiras', '47147121', 'big field', '22036744851', 'centro','3m41l@bol.com', 'leticia tavares', '420', 'soumtodoida', '984576985', 'rj');
+
 insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua das eras', '25416898', 'conselheiro lafaiete', '54987455632', 'hortencias','eitaquesaco@gmail.com', 'marco aurelio vilhena', '870', 'manokkk', '32416854', 'mg');
+
 insert into tb_user ( address , cep , city , cpf , district , email , name , number , password , phone , state ) values ('rua da luz interior', '5984845', 'rio de janeiro', '59856320145', 'bairro aleatorio','alguemmesalve@gmail.com', 'vinicius de paula', '8550', 'naguentomais', '35427845', 'rj');
 
 
