@@ -22,7 +22,6 @@ public class ApiApplication {
 		
 	@RequestMapping("")
 	public void redirect(HttpServletResponse httpServletResponse) {		
-		System.out.println("OPAAAA");
 		httpServletResponse.setHeader("Location", "/swagger-ui.html");
 		httpServletResponse.setStatus(302);
 	}
