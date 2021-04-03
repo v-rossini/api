@@ -1,5 +1,7 @@
 package br.com.squad44.api.controllers.form;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.validation.constraints.NotNull;
 
 public class UserRegisterForm {
@@ -24,7 +26,8 @@ public class UserRegisterForm {
 	
 
     public void setEmail(String email) {
-        this.email = email;
+        if(isValidEmailAddress(email))
+            this.email = email;
     }
 
     public String getEmail() {
@@ -109,6 +112,18 @@ public class UserRegisterForm {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public static boolean isValidEmailAddress(String email) {
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            System.out.println(ex.getMessage());
+            result = false;
+        }
+        return result;
     }
 
 }
