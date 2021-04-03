@@ -14,7 +14,7 @@ Abre o link [https://squad-44-api.herokuapp.com/](https://squad-44-api.herokuapp
 
 ## Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [JDK-11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html), [Maven](https://maven.apache.org/download.cgi).
+[Git](https://git-scm.com), [JDK-11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html) e [Maven](https://maven.apache.org/download.cgi).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ## Rodando a Aplicação na sua máquina
