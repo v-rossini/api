@@ -14,9 +14,7 @@ public class OrderDTO implements Serializable {
 
 	private Long id;
 	private Long studentId;
-	private String studentName;
-	private Long schoolId;
-	private String schoolName;
+	private String studentName;	
 	private List<ItemOrderDTO> items = new ArrayList<>();
 	
 	public OrderDTO() {
@@ -31,12 +29,6 @@ public class OrderDTO implements Serializable {
 		this.studentId = order.getStudent().getId();
 		this.studentName = order.getStudent().getName();
 		}
-		/*
-		if (order.getSchool() != null) {
-		this.schoolId = order.getSchool().getId();
-		this.schoolName = order.getSchool().getName();
-		}
-		*/
 	}
 
 	public Long getId() {
@@ -63,26 +55,8 @@ public class OrderDTO implements Serializable {
 		this.studentName = studentName;
 	}
 
-	public Long getSchoolId() {
-		return schoolId;
-	}
-
-	public void setSchoolId(Long schoolId) {
-		this.schoolId = schoolId;
-	}
-
-	public String getSchoolName() {
-		return schoolName;
-	}
-
-	public void setSchoolName(String schoolName) {
-		this.schoolName = schoolName;
-	}
-
 	public List<ItemOrderDTO> getItems() {
 		return items;
 	}
-
-
 	
 }
