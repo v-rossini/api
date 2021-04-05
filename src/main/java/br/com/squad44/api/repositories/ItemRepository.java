@@ -12,7 +12,7 @@ import br.com.squad44.api.entities.Item;
 
 @Repository
 public interface ItemRepository extends CrudRepository<Item, Long> {
-	@Query("select u from Item u where u.product like %?1%")
+	@Query("select u from Item u where lower(u.product) like lower(concat('%',?1,'%'))")
 	List<Item> findItemByProduct (String product);
 
 	@Query("SELECT u FROM Item u")
