@@ -17,7 +17,7 @@ public class SwaggerConfiguration {
         return new ApiInfoBuilder()
             .title("Mochila Cheia API REST")
             .description("<h4>Spring Boot REST API para o projeto do Hackathon Grupo FCamara - Squad44</h4>")
-            .version("1.0.0")
+            .version("1.1.2")
             .build();
     }
     
