@@ -1,5 +1,6 @@
 package br.com.squad44.api.controllers.form;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -14,7 +15,7 @@ public class StudentForm {
     @NotNull @NotEmpty @Length(min = 5)
     private String name;
     
-    @NotNull @NotEmpty
+    @NotNull @Min(1)
     private Integer idade;
 
     @NotNull
@@ -23,10 +24,11 @@ public class StudentForm {
     @NotNull
 	private Long parentId;
 
-    public StudentForm(String name, Long schoolId, Long parentId) {
+    public StudentForm(String name, Long schoolId, Long parentId, Integer idade) {
         this.name = name;
         this.schoolId = schoolId;
         this.parentId = parentId;
+        this.idade = idade;
     }
 
     public void setName(String name) {
@@ -35,6 +37,14 @@ public class StudentForm {
 
     public String getName() {
         return name;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
+    }
+
+    public Integer getIdade() {
+        return idade;
     }
 
     public void setSchoolId(Long schoolId) {

@@ -19,13 +19,13 @@ public class StudentServiceTest {
 
     @Test
     public void registerTest() {
-        StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
+        StudentForm form = new StudentForm("Fulano da Silva",1L,1L,10);
         assertEquals(200, service.register(form).getStatusCodeValue());
     }
 
     @Test
     public void getByIdTest() {
-        StudentForm form = new StudentForm("Fulano da Silva",1L,1L);
+        StudentForm form = new StudentForm("Fulano da Silva",1L,1L,13);
         ResponseEntity<StudentDTO> response = service.register(form);
         assertEquals(200, service.getById(response.getBody().getId()).getStatusCode().value());        
     }

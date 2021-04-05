@@ -2,6 +2,8 @@ package br.com.squad44.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +37,7 @@ public class StudentController {
     StudentService service;
 
     @PostMapping
-    public ResponseEntity<StudentDTO> register(@RequestBody StudentForm form) {
+    public ResponseEntity<StudentDTO> register(@RequestBody @Valid StudentForm form) {
     	return service.register(form);
     }
 
