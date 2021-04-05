@@ -14,9 +14,6 @@ public class StudentForm {
     
     @NotNull @NotEmpty @Length(min = 5)
     private String name;
-    
-    @NotNull @Min(1)
-    private Integer age;
 
     @NotNull
     private Long schoolId;
@@ -24,11 +21,10 @@ public class StudentForm {
     @NotNull
 	private Long parentId;
 
-    public StudentForm(String name, Long schoolId, Long parentId, Integer age) {
+    public StudentForm(String name, Long schoolId, Long parentId) {
         this.name = name;
         this.schoolId = schoolId;
         this.parentId = parentId;
-        this.age = age;
     }
 
     public void setName(String name) {
@@ -37,14 +33,6 @@ public class StudentForm {
 
     public String getName() {
         return name;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Integer getAge() {
-        return age;
     }
 
     public void setSchoolId(Long schoolId) {
@@ -64,7 +52,7 @@ public class StudentForm {
     }
 
     public Student convert(SchoolRepository schoolRepository, ParentRepository parentRepository) {
-        return new Student(name, schoolRepository.findById(schoolId).get(), parentRepository.findById(parentId).get(), age);
+        return new Student(name, schoolRepository.findById(schoolId).get(), parentRepository.findById(parentId).get());
     }
     
 }
