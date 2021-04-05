@@ -1,6 +1,5 @@
 package br.com.squad44.api.controllers.form;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
