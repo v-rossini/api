@@ -24,3 +24,5 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 - Entre no diretório target ``` $ cd target/ ```
 - Execute o comando para rodar a aplicação ``` $ java -jar <arquivo.jar com a versao atual> ```
 - A Aplicação irá subir na seguinte URL:  [http://localhost:8080/](http://localhost:8080/)
+
+- Em ambiente de desenvolvimento, a aplicação inclui um script que realiza uma carga inicial em um banco de dados em memória (H2). A rota base redireciona para a página de documentação da API.
